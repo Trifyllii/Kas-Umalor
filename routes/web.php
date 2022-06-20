@@ -25,6 +25,8 @@ Route::get('/pendapatansewa', [App\Http\Controllers\pSewaController::class, 'ind
 
 Route::get('/pendapatanlain', [App\Http\Controllers\pLainController::class, 'index'])->name('pendapatanLain');
 Route::get('/pembelian', [App\Http\Controllers\pembelianController::class, 'index'])->name('pembelian');
+Route::post('/tambahDagang', [App\Http\Controllers\pembelianController::class, 'tambahDagang']);
+
 Route::get('/biaya', [App\Http\Controllers\biayaController::class, 'index'])->name('biaya');
 Route::post('/tambahBiaya', [App\Http\Controllers\biayaController::class, 'tambahBiaya']);
 

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\biaya;
+use App\Models\Biaya;
 use Illuminate\Http\Request;
 
 class biayaController extends Controller
@@ -26,14 +26,14 @@ class biayaController extends Controller
     public function index()
     {
         return view('biaya', [ 
-            // 'jajanan' => Jajanan::all() 
-            'biaya' => biaya::latest()->get() 
+            
+            'biaya' => Biaya::latest()->get() 
         ]);
     }
     
     public function tambahBiaya(Request $request){ 
        // dd($request->all()); 
-        biaya::create([ 
+        Biaya::create([ 
             'kd_biaya' => $request->KodeBiaya, 
             'tgl_biaya' => $request->TanggalBiaya, 
             'nm_biaya' => $request->NamaBiaya, 

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Dagang;
 use Illuminate\Http\Request;
 
 class pembelianController extends Controller
@@ -15,7 +15,7 @@ class pembelianController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+       $this->middleware('auth');
     }
 
     /**
@@ -23,8 +23,25 @@ class pembelianController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+     public function index()
     {
-        return view('pembelian');
+        return view('pembelian', [ 
+            'dagang' => Dagang::latest()->get() 
+        ]);
+    }
+
+        public function tambahDagang(Request $request)
+    {
+        Dagang::create([ 
+            'kd_dagang' => $request->KodeDagang, 
+            'nm_dagang' => $request->NamaDagang, 
+            'tgl_pembelian' => $request->TanggalPembelian, 
+            'jenis_dagang' => $request->JenisDagang, 
+            'jml_pembelian' => $request->JumlahPembelian,
+            'hrg_beli' => $request->HargaBeli,
+            'hrg_jual' => $request->HargaJual,
+            'quantity' => $request->Quantity,
+        ]); 
+        return redirect('dagang');
     }
 }

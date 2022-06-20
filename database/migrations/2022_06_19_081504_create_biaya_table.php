@@ -18,7 +18,7 @@ class CreateBiayaTable extends Migration
             $table->date('tgl_biaya');
             $table->string('nm_biaya');
             $table->double('jml_biaya',15);
-            $table->timestamps();
+            $table->timestamps(); 
             $table->softDeletes('deleted_at');
         });
     }
