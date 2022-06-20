@@ -21,7 +21,7 @@ class CreateDagangTable extends Migration
             $table->integer('jml_pembelian');
             $table->double('hrg_beli',15);
             $table->double('hrg_jual',15);
-            $table->integer('quantity');
+            $table->integer('quantity')->nullable();
             $table->timestamps();
             $table->softDeletes('deleted_at');
         });

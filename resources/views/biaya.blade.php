@@ -15,6 +15,8 @@
                 <!-- Trigger the modal with a button -->
                 <button type="button" class="mt-3 btn btn-dark btn" data-toggle="modal" data-target="#myModal">
                     Tambah Data
+                    <i class="fas fa-plus ml-2"></i>
+
                 </button>
 
                 <!-- Modal -->
@@ -22,30 +24,32 @@
                     <div class="modal-dialog">
 
                         <!-- Modal content-->
-                        <div class="modal-content">
+                        <div class="bg-dark modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Tambah Data</h4>
+                                <h4 class="text-warning modal-title">Tambah Data</h4>
                             </div>
                             <div class="modal-body">
                                 <form action="{{ url('/tambahBiaya') }}" method="POST">
                                     @csrf
                                     <div class="form-group">
-                                        <label>FORM PENGELUARAN BIAYA :</label>
-                                        <input name="KodeBiaya" type="text" class="form-control"
-                                            id="formGroupExampleInput" placeholder="Kode Biaya">
-                                        <input name="TanggalBiaya" type="date" class="mt-3 form-control" name="tglbiaya"
-                                            id="" placeholder="Tanggal Biaya">
-                                        <input name="NamaBiaya" type="text" class="mt-3 form-control"
-                                            id="formGroupExampleInput" placeholder="Nama Biaya">
-                                        <input name="JumlahBiaya" type="text" class="mt-3 form-control"
-                                            id="formGroupExampleInput2" placeholder="Jumlah Biaya">
+                                        <label class="text-warning mt-1 control-label">Kode Biaya</label>
+                                        <input name="KodeBiaya" type="text" class="col-md-12 form-control"
+                                            id="formGroupExampleInput" >
+                                        <label class="text-warning mt-2 control-label">Tanggal Biaya</label>
+                                        <input name="TanggalBiaya" type="date" class="form-control" name="tglbiaya"
+                                            id="">
+                                        <label class="text-warning mt-2 control-label">Nama Biaya</label>
+                                        <input name="NamaBiaya" type="text" class="form-control"
+                                            id="formGroupExampleInput">
+                                        <label class="text-warning mt-2 control-label">Jumlah Biaya</label>
+                                        <input name="JumlahBiaya" placeholder="Rp." type="text" class="form-control"
+                                            id="formGroupExampleInput2">
                                     </div>
-                                
                                 
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-success">Simpan</button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn text-warning btn-outline-success">Simpan</button>
+                                <button type="button" class="btn text-warning btn-outline-danger" data-dismiss="modal">Batal</button>
                             </div>
                             </form>
                         </div>

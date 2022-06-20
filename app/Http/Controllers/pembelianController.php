@@ -42,6 +42,6 @@ class pembelianController extends Controller
             'hrg_jual' => $request->HargaJual,
             'quantity' => $request->Quantity,
         ]); 
-        return redirect('dagang');
+        return redirect('pembelian');
     }
 }
