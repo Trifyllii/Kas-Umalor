@@ -39,6 +39,14 @@ class biayaController extends Controller
             'nm_biaya' => $request->NamaBiaya, 
             'jml_biaya' => $request->JumlahBiaya, 
         ]); 
-        return redirect('biaya'); 
+        return redirect('biaya');
+    }
+    public function editBiaya(Request $request){
+        Biaya::whereIn('kd_biaya', [$request->KodeBiaya])->update([
+            'tgl_biaya' => $request->TanggalBiaya, 
+            'nm_biaya' => $request->NamaBiaya, 
+            'jml_biaya' => $request->JumlahBiaya, 
+        ]);
+        return redirect('biaya');
     }
 }

@@ -9,6 +9,7 @@ class Biaya extends Model
 {
     use HasFactory;
     protected $table = "biaya";
+    public $incrementing = false;
     protected $fillable = ['kd_biaya','tgl_biaya','nm_biaya','jml_biaya'];
 
 }
