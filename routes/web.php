@@ -30,11 +30,11 @@ Route::post('/tambahDagang', [App\Http\Controllers\pembelianController::class, '
 Route::get('/biaya', [App\Http\Controllers\biayaController::class, 'index'])->name('biaya');
 Route::post('/tambahBiaya', [App\Http\Controllers\biayaController::class, 'tambahBiaya']);
 
-Route::get('/daftarDagang', [App\Http\Controllers\dDagangController::class, 'index'])->name('biaya');
-Route::get('/lapPenerimaankas', [App\Http\Controllers\lPenerimaankasController::class, 'index'])->name('biaya');
-Route::get('/lapPengeluarankas', [App\Http\Controllers\lPengeluarankasController::class, 'index'])->name('biaya');
-Route::get('/bukuBesarkas', [App\Http\Controllers\lBukubesarkasController::class, 'index'])->name('biaya');
-Route::get('/lapLabarugi', [App\Http\Controllers\lLabarugiController::class, 'index'])->name('biaya');
+Route::get('/daftarDagang', [App\Http\Controllers\laporanController::class, 'viewDaftardagang'])->name('daftarDagang');
+Route::get('/lapPenerimaankas', [App\Http\Controllers\laporanController::class, 'viewPenerimaankas'])->name('lapPenerimaankas');
+Route::get('/lapPengeluarankas', [App\Http\Controllers\laporanController::class, 'viewPengeluarankas'])->name('lapPengeluarankas');
+Route::get('/bukuBesarkas', [App\Http\Controllers\laporanController::class, 'viewBukubesarkas'])->name('bukuBesarkas');
+Route::get('/lapLabarugi', [App\Http\Controllers\laporanController::class, 'viewLabarugi'])->name('lapLabarugi');
 
 Auth::routes();
 
