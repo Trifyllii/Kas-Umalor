@@ -11,7 +11,6 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <p class="mb-0">PEMBELIAN</p>
             <!-- Trigger the modal with a button -->
             <button type="button" class="mt-3 btn btn-dark btn" data-toggle="modal" data-target="#myModal">
                 Tambah Data
