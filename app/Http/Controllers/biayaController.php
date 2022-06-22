@@ -49,4 +49,8 @@ class biayaController extends Controller
         ]);
         return redirect('biaya');
     }
+    public function hapusBiaya(Request $request){
+        Biaya::where('kd_biaya', [$request->KodeBiaya])->delete();
+        return redirect('biaya') ->with('alert', 'Data Berhasil Dihapus!');
+    }
 }
