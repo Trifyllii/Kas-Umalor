@@ -67,10 +67,10 @@
                         <table class="table table-hover">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th scope="col">Kode Bayar</th>
-                                    <th scope="col">Tanggal Bayar</th>
-                                    <th scope="col">Nama Bayar</th>
-                                    <th scope="col">Jumlah Bayar</th>
+                                    <th scope="col">Kode Biaya</th>
+                                    <th scope="col">Tanggal Biaya</th>
+                                    <th scope="col">Nama Biaya</th>
+                                    <th scope="col">Jumlah Biaya</th>
                                     <th scope="col">Opsi Pilihan</th>
                                 </tr>
                             </thead>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Dagang;
+use App\Models\Pembelian;
 use Illuminate\Http\Request;
 
 class pembelianController extends Controller
@@ -26,22 +26,33 @@ class pembelianController extends Controller
      public function index()
     {
         return view('pembelian', [ 
-            'dagang' => Dagang::latest()->get() 
+            'pembelian' => Pembelian::latest()->get() 
+
         ]);
     }
 
-        public function tambahDagang(Request $request)
+        public function tambahPembelian(Request $request)
     {
-        Dagang::create([ 
-            'kd_dagang' => $request->KodeDagang, 
-            'nm_dagang' => $request->NamaDagang, 
+        Pembelian::create([ 
+            'kd_pembelian' => $request->KodePembelian, 
             'tgl_pembelian' => $request->TanggalPembelian, 
-            'jenis_dagang' => $request->JenisDagang, 
-            'jml_pembelian' => $request->JumlahPembelian,
+            'nm_pembelian' => $request->NamaPembelian, 
+            'jml_beli' => $request->JumlahBeli,
             'hrg_beli' => $request->HargaBeli,
-            'hrg_jual' => $request->HargaJual,
-            'quantity' => $request->Quantity,
         ]); 
         return redirect('pembelian');
+    }
+    public function editPembelian(Request $request){
+        Pembelian::whereIn('kd_pembelian', [$request->KodePembelian])->update([
+            'tgl_pembelian' => $request->TanggalPembelian, 
+            'nm_pembelian' => $request->NamaPembelian, 
+            'jml_beli' => $request->JumlahBeli, 
+            'hrg_beli' => $request->HargaBeli, 
+        ]);
+        return redirect('pembelian');
+    }
+    public function hapusPembelian(Request $request){
+        Pembelian::where('kd_pembelian', [$request->KodePembelian])->delete();
+        return redirect('pembelian') ->with('alert', 'Data Berhasil Dihapus!');
     }
 }
