@@ -21,17 +21,17 @@ class laporanController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function viewDaftardagang()
+    public function viewPendapatansewa()
     {
-        return view('daftarDagang');
+        return view('lapPendapatansewa');
     }
-    public function viewBukubesarkas()
+    public function viewPendapatanlain()
     {
-        return view('bukuBesarkas');
+        return view('lapPendapatanlain');
     }
-    public function viewLabarugi()
+     public function viewPembelian()
     {
-        return view('lapLabarugi');
+        return view('pembelian');
     }
     public function viewPenerimaankas()
     {
@@ -40,6 +40,10 @@ class laporanController extends Controller
     public function viewPengeluarankas()
     {
         return view('lapPengeluarankas');
+    }
+     public function viewBukubesarkas()
+    {
+        return view('bukuBesarkas');
     }
 
 }

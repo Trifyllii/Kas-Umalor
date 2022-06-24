@@ -297,25 +297,29 @@ return [
             'submenu' => [
                 [
                     'text' => 'lv1',
-                    'url'  => '/daftarDagang',
+                    'url'  => '/lapPendapatansewa',
                 ],
                 [
-                    'text'    => 'lv2',
+                    'text' => 'lv2',
+                    'url'  => '/lapPendapatanlain',
+                ],
+                [
+                    'text' => 'lv3',
+                    'url'  => '/lapPembelian',
+                ],
+                [
+                    'text'    => 'lv4',
                     'url'     => '/lapPenerimaankas',
                     
                 ],
                 [
-                    'text' => 'lv3',
+                    'text' => 'lv5',
                     'url'  => '/lapPengeluarankas',
                 ],
                 [
-                    'text'    => 'lv4',
+                    'text'    => 'lv6',
                     'url'     => '/bukuBesarkas',
                     
-                ],
-                [
-                    'text' => 'lv5',
-                    'url'  => '/lapLabarugi',
                 ],
             ],
         ],
