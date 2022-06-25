@@ -23,6 +23,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/pendapatansewa', [App\Http\Controllers\pSewaController::class, 'index'])->name('pendapatanSewa');
 Route::get('/pendapatanlain', [App\Http\Controllers\pLainController::class, 'index'])->name('pendapatanLain');
+Route::post('/tambahPendapatanlain', [App\Http\Controllers\pLainController::class, 'tambahPendapatanlain']);
+Route::post('/editPendapatanlain', [App\Http\Controllers\pLainController::class, 'editPendapatanlain']);
+Route::post('/hapusPendapatanlain', [App\Http\Controllers\pLainController::class, 'hapusPendapatanlain']);
 
 Route::get('/pembelian', [App\Http\Controllers\pembelianController::class, 'index'])->name('pembelian');
 Route::post('/tambahPembelian', [App\Http\Controllers\pembelianController::class, 'tambahPembelian']);
