@@ -40,6 +40,9 @@ Route::post('/hapusBiaya', [App\Http\Controllers\biayaController::class, 'hapusB
 
 Route::get('/lapPenerimaankas', [App\Http\Controllers\laporanController::class, 'viewPenerimaankas'])->name('lapPenerimaankas');
 Route::get('/lapPengeluarankas', [App\Http\Controllers\laporanController::class, 'viewPengeluarankas'])->name('lapPengeluarankas');
+
+Route::post('/lapPengeluarankas/sorted', [App\Http\Controllers\laporanController::class, 'sortedPengeluaranKas']);
+
 Route::get('/bukuBesarkas', [App\Http\Controllers\laporanController::class, 'viewBukubesarkas'])->name('bukuBesarkas');
 
 Auth::routes();
