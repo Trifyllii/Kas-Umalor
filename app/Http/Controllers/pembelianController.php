@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Pembelian;
+use App\Models\pengeluaranKas;
 use Illuminate\Http\Request;
 
 class pembelianController extends Controller
@@ -39,6 +40,12 @@ class pembelianController extends Controller
             'nm_pembelian' => $request->NamaPembelian, 
             'jml_beli' => $request->JumlahBeli,
             'hrg_beli' => $request->HargaBeli,
+        ]);
+        pengeluaranKas::create([ 
+            'kd_pembelian' => $request->KodePembelian, 
+            'tgl_transaksi' => $request->TanggalPembelian, 
+            'ket_transaksi' => $request->NamaPembelian, 
+            'jml_transaksi' => $request->HargaBeli,
         ]); 
         return redirect('pembelian');
     }
@@ -49,10 +56,18 @@ class pembelianController extends Controller
             'jml_beli' => $request->JumlahBeli, 
             'hrg_beli' => $request->HargaBeli, 
         ]);
+        PengeluaranKas::whereIn('kd_pembelian', [$request->KodePembelian])->update([
+            'tgl_transaksi' => $request->TanggalPembelian, 
+            'ket_transaksi' => $request->NamaPembelian, 
+            'jml_transaksi' => $request->HargaBeli, 
+        ]);
         return redirect('pembelian');
+
     }
     public function hapusPembelian(Request $request){
         Pembelian::where('kd_pembelian', [$request->KodePembelian])->delete();
+        pengeluaranKas::where('kd_pembelian', [$request->KodePembelian])->delete();
+
         return redirect('pembelian') ->with('alert', 'Data Berhasil Dihapus!');
     }
 }

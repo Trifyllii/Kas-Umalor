@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\pengeluaranKas;
+use App\Models\pembelian;
+use App\Models\biaya;
 use Illuminate\Http\Request;
 
 class laporanController extends Controller
@@ -39,7 +41,18 @@ class laporanController extends Controller
     }
     public function viewPengeluarankas()
     {
-        return view('lapPengeluarankas');
+        return view('lapPengeluarankas', [ 
+            'pengeluaran' => pengeluaranKas::latest()->get() 
+        ]);
+    }
+     public function sortedPengeluaranKas(Request $request)
+    {
+        $pk = pengeluaranKas::whereBetween('tgl_transaksi', [$request->tgldari, $request->tglsampai])->get();
+        return view('lapPengeluarankas', [ 
+            'pengeluaran' => $pk,
+            'tgldari' => $request->tgldari, 
+            'tglsampai' => $request->tglsampai
+        ]);
     }
      public function viewBukubesarkas()
     {
