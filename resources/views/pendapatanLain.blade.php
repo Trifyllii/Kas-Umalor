@@ -3,11 +3,11 @@
 @section('title', 'pendapatanLain')
 
 @section('content_header')
-<h1 class="m-0 text-dark">Pendapatan Lain</h1>
+    <h1 class="m-0 text-dark">Pendapatan Lain</h1>
 @stop
 
 @section('content')
-<div class="row">
+    <div class="row">
         <div class="col-12 mb-4">
             <div class="card">
                 <div class="card-body">
@@ -34,8 +34,8 @@
                                             <input name="KodePendapatanLain" type="text" class="col-md-12 form-control"
                                                 id="formGroupExampleInput">
                                             <label class="text-warning mt-2 control-label">Tanggal Pendapatan Lain</label>
-                                            <input name="TanggalPendapatanLain" type="date" class="form-control" name="tglpembelian"
-                                                id="">
+                                            <input name="TanggalPendapatanLain" type="date" class="form-control"
+                                                name="tglpendapatanlain" id="">
                                             <label class="text-warning mt-2 control-label">Nama Barang</label>
                                             <input name="NamaBarang" type="text" class="form-control"
                                                 id="formGroupExampleInput">
@@ -43,8 +43,8 @@
                                             <input name="JumlahBarang" type="number" class="form-control"
                                                 id="formGroupExampleInput2">
                                             <label class="text-warning mt-2 control-label">Nominal</label>
-                                            <input name="JumlahPendapatanLain" placeholder="Rp." type="text" class="form-control"
-                                                id="formGroupExampleInput2">
+                                            <input name="JumlahPendapatanLain" placeholder="Rp." type="text"
+                                                class="form-control" id="formGroupExampleInput2">
                                         </div>
                                 </div>
                                 <div class="modal-footer">
@@ -96,7 +96,8 @@
                                                 </button>
 
                                                 <!-- Modal EDIT -->
-                                                <div id="{{ $by['kd_pendapatan_lain'] }}_editModal" class="modal fade" role="dialog">
+                                                <div id="{{ $by['kd_pendapatan_lain'] }}_editModal" class="modal fade"
+                                                    role="dialog">
                                                     <div class="modal-dialog">
 
                                                         <!-- Modal content-->
@@ -105,28 +106,43 @@
                                                                 <h4 class="text-warning modal-title">Edit Data</h4>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form action="{{ url('/editPendapatanlain') }}" method="POST">
+                                                                <form action="{{ url('/editPendapatanlain') }}"
+                                                                    method="POST">
                                                                     @csrf
                                                                     <div class="form-group">
-                                                                        <label class="text-warning mt-1 control-label">Kode Pendapatan Lain<small><i>Read Only</i></small></label>
-                                                                        <input readonly value="{{ $by['kd_pendapatan_lain'] }}" 
-                                                                            name="KodePendapatanLain" type="text" class="col-md-12 form-control"
+                                                                        <label class="text-warning mt-1 control-label">Kode
+                                                                            Pendapatan Lain<small><i>Read
+                                                                                    Only</i></small></label>
+                                                                        <input readonly
+                                                                            value="{{ $by['kd_pendapatan_lain'] }}"
+                                                                            name="KodePendapatanLain" type="text"
+                                                                            class="col-md-12 form-control"
                                                                             id="formGroupExampleInput">
-                                                                        <label class="text-warning mt-2 control-label">Tanggal Pendapatan Lain</label>
+                                                                        <label
+                                                                            class="text-warning mt-2 control-label">Tanggal
+                                                                            Pendapatan Lain</label>
                                                                         <input value="{{ $by['tgl_pendapatan_lain'] }}"
-                                                                            name="TanggalPendapatanLain" type="date" class="form-control" name="tglpendapatanlain"
+                                                                            name="TanggalPendapatanLain" type="date"
+                                                                            class="form-control" name="tglpendapatanlain"
                                                                             id="">
-                                                                        <label class="text-warning mt-2 control-label">Nama Barang</label>
+                                                                        <label class="text-warning mt-2 control-label">Nama
+                                                                            Barang</label>
                                                                         <input value="{{ $by['nm_barang'] }}"
-                                                                            name="NamaBarang" type="text" class="form-control"
+                                                                            name="NamaBarang" type="text"
+                                                                            class="form-control"
                                                                             id="formGroupExampleInput">
-                                                                        <label class="text-warning mt-2 control-label">Jumlah Barang</label>
+                                                                        <label
+                                                                            class="text-warning mt-2 control-label">Jumlah
+                                                                            Barang</label>
                                                                         <input value="{{ $by['jml_barang'] }}"
-                                                                            name="JumlahBarang" type="number" class="form-control"
+                                                                            name="JumlahBarang" type="number"
+                                                                            class="form-control"
                                                                             id="formGroupExampleInput2">
-                                                                        <label class="text-warning mt-2 control-label">Nominal</label>
+                                                                        <label
+                                                                            class="text-warning mt-2 control-label">Nominal</label>
                                                                         <input value="{{ $by['jml_pendapatan_lain'] }}"
-                                                                            name="JumlahPendapatanLain" placeholder="Rp." type="text" class="form-control"
+                                                                            name="JumlahPendapatanLain" placeholder="Rp."
+                                                                            type="text" class="form-control"
                                                                             id="formGroupExampleInput2">
                                                                     </div>
                                                             </div>
@@ -151,8 +167,8 @@
                                                     <i class="fas fa-ban"></i>
                                                 </button>
                                                 <!-- Modal DELETE -->
-                                                <div id="{{ $by['kd_pendapatan_lain'] }}_deleteModal" class="modal fade"
-                                                    role="dialog">
+                                                <div id="{{ $by['kd_pendapatan_lain'] }}_deleteModal"
+                                                    class="modal fade" role="dialog">
                                                     <div class="modal-dialog">
 
                                                         <!-- Modal content-->
@@ -161,7 +177,8 @@
                                                                 <h4 class="text-warning modal-title">Hapus Data</h4>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form action="{{ url('/hapusPendapatanlain') }}" method="POST">
+                                                                <form action="{{ url('/hapusPendapatanlain') }}"
+                                                                    method="POST">
                                                                     @csrf
                                                                     <div class="form-group">
                                                                         <label
@@ -180,10 +197,12 @@
                                                                                             class="col-md-12 form-control"
                                                                                             id="formGroupExampleInput">
                                                                                     </th>
-                                                                                    <td>{{ $by['tgl_pendapatan_lain'] }}</td>
+                                                                                    <td>{{ $by['tgl_pendapatan_lain'] }}
+                                                                                    </td>
                                                                                     <td>{{ $by['nm_barang'] }}</td>
                                                                                     <td>{{ $by['jml_barang'] }}</td>
-                                                                                    <td>{{ $by['jml_pendapatan_lain'] }}</td>
+                                                                                    <td>{{ $by['jml_pendapatan_lain'] }}
+                                                                                    </td>
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>

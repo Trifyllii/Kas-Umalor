@@ -22,10 +22,14 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/pendapatansewa', [App\Http\Controllers\pSewaController::class, 'index'])->name('pendapatanSewa');
+Route::post('/tambahPendapatansewa', [App\Http\Controllers\pSewaController::class, 'tambahPendapatanSewa']);
+Route::post('/editPendapatansewa', [App\Http\Controllers\pSewaController::class, 'editPendapatanSewa']);
+Route::post('/hapusPendapatansewa', [App\Http\Controllers\pSewaController::class, 'hapusPendapatanSewa']);
+
 Route::get('/pendapatanlain', [App\Http\Controllers\pLainController::class, 'index'])->name('pendapatanLain');
-Route::post('/tambahPendapatanlain', [App\Http\Controllers\pLainController::class, 'tambahPendapatanlain']);
-Route::post('/editPendapatanlain', [App\Http\Controllers\pLainController::class, 'editPendapatanlain']);
-Route::post('/hapusPendapatanlain', [App\Http\Controllers\pLainController::class, 'hapusPendapatanlain']);
+Route::post('/tambahPendapatanlain', [App\Http\Controllers\pLainController::class, 'tambahPendapatanLain']);
+Route::post('/editPendapatanlain', [App\Http\Controllers\pLainController::class, 'editPendapatanLain']);
+Route::post('/hapusPendapatanlain', [App\Http\Controllers\pLainController::class, 'hapusPendapatanLain']);
 
 Route::get('/pembelian', [App\Http\Controllers\pembelianController::class, 'index'])->name('pembelian');
 Route::post('/tambahPembelian', [App\Http\Controllers\pembelianController::class, 'tambahPembelian']);
