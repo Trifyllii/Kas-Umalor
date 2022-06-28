@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\pengeluaranKas;
+use App\Models\penerimaanKas;
 use App\Models\pembelian;
+use App\Models\pendapatanLain;
+use App\Models\pendapatanSewa;
 use App\Models\biaya;
 use Illuminate\Http\Request;
 
@@ -25,11 +28,35 @@ class laporanController extends Controller
      */
     public function viewPendapatansewa()
     {
-        return view('lapPendapatansewa');
+        return view('lapPendapatansewa', [
+            'pendapatan' => pendapatanSewa::latest()->get() 
+        ]);
+
+    }
+    public function sortedPendapatansewa(Request $request)
+    {
+        $pk = pendapatanSewa::whereBetween('tgl_pendapatan_sewa', [$request->tgldari, $request->tglsampai])->get();
+        return view('lapPendapatansewa', [ 
+            'pendapatan' => $pk,
+            'tgldari' => $request->tgldari, 
+            'tglsampai' => $request->tglsampai
+        ]);
     }
     public function viewPendapatanlain()
     {
-        return view('lapPendapatanlain');
+        return view('lapPendapatanlain', [
+            'pendapatan' => pendapatanLain::latest()->get() 
+        ]);
+
+    }
+    public function sortedPendapatanlain(Request $request)
+    {
+        $pk = pendapatanLain::whereBetween('tgl_pendapatan_lain', [$request->tgldari, $request->tglsampai])->get();
+        return view('lapPendapatanlain', [ 
+            'pendapatan' => $pk,
+            'tgldari' => $request->tgldari, 
+            'tglsampai' => $request->tglsampai
+        ]);
     }
      public function viewPembelian()
     {
@@ -37,7 +64,20 @@ class laporanController extends Controller
     }
     public function viewPenerimaankas()
     {
-        return view('lapPenerimaankas');
+
+        return view('lapPenerimaankas', [ 
+            'penerimaan' => penerimaanKas::latest()->get() 
+        ]);
+
+    }
+    public function sortedPenerimaanKas(Request $request)
+    {
+        $pk = penerimaanKas::whereBetween('tgl_transaksi', [$request->tgldari, $request->tglsampai])->get();
+        return view('lapPenerimaankas', [ 
+            'penerimaan' => $pk,
+            'tgldari' => $request->tgldari, 
+            'tglsampai' => $request->tglsampai
+        ]);
     }
     public function viewPengeluarankas()
     {

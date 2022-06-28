@@ -45,22 +45,32 @@
                     <table class="table table-bordered">
                         <thead class="thead-dark">
                             <tr>
+                                <th scope="col">No</th>
                                 <th scope="col">Tanggal Transaksi</th>
                                 <th scope="col">Keterangan</th>
                                 <th scope="col">Jumlah</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $no = 1;
+                                $sum = 0;
+                            @endphp
                             @foreach ($pengeluaran as $by)
                                 <tr>
+                                    <th scope="row">{{ $no++ }}</th>
                                     <th scope="row">{{ $by['tgl_transaksi'] }}</th>
                                     <td>{{ $by['ket_transaksi'] }}</td>
                                     <td>{{ $by['jml_transaksi'] }}</td>
                                 </tr>
+                                @php
+                                    $sum += $by['jml_transaksi'];
+                                @endphp
                             @endforeach
+                            </tr>
                             <tr>
-                                <th class="text-center" colspan="2">Total</th>
-                                <th></th>
+                                <th class="text-center" colspan="3">Total</th>
+                                <th>{{ $sum }}</th>
                             </tr>
                         </tbody>
 
