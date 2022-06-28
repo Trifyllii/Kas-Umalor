@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\pendapatanlain;
+use App\Models\penerimaanKas;
+
 use Illuminate\Http\Request;
 
 class pLainController extends Controller
@@ -40,6 +42,12 @@ class pLainController extends Controller
             'jml_barang' => $request->JumlahBarang,
             'jml_pendapatan_lain' => $request->JumlahPendapatanLain,
         ]); 
+        penerimaanKas::create([ 
+            'kd_pendapatan_lain' => $request->KodePendapatanLain, 
+            'tgl_transaksi' => $request->TanggalPendapatanLain, 
+            'ket_transaksi' => $request->NamaBarang, 
+            'jml_transaksi' => $request->JumlahPendapatanLain,
+        ]); 
         return redirect('pendapatanlain');
     }
     public function editPendapatanlain(Request $request){
@@ -49,10 +57,17 @@ class pLainController extends Controller
             'jml_barang' => $request->JumlahBarang,
             'jml_pendapatan_lain' => $request->JumlahPendapatanLain,
         ]);
+        penerimaanKas::whereIn('kd_pendapatan_lain', [$request->KodePendapatanLain])->update([
+            'tgl_transaksi' => $request->TanggalPendapatanLain, 
+            'ket_transaksi' => $request->NamaBarang, 
+            'jml_transaksi' => $request->JumlahPendapatanLain,
+        ]);
         return redirect('pendapatanlain');
     }
     public function hapusPendapatanlain(Request $request){
         pendapatanlain::where('kd_pendapatan_lain', [$request->KodePendapatanLain])->delete();
+        penerimaanKas::where('kd_pendapatan_lain', [$request->KodePendapatanLain])->delete();
+
         return redirect('pendapatanlain') ->with('alert', 'Data Berhasil Dihapus!');
     }
 }

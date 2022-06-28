@@ -41,10 +41,16 @@ Route::post('/tambahBiaya', [App\Http\Controllers\biayaController::class, 'tamba
 Route::post('/editBiaya', [App\Http\Controllers\biayaController::class, 'editBiaya']);
 Route::post('/hapusBiaya', [App\Http\Controllers\biayaController::class, 'hapusBiaya']);
 
+Route::get('/lapPendapatansewa', [App\Http\Controllers\laporanController::class, 'viewPendapatansewa'])->name('lapPendapatansewa');
+Route::post('/lapPendapatansewa/sorted', [App\Http\Controllers\laporanController::class, 'sortedPendapatansewa']);
+
+Route::get('/lapPendapatanlain', [App\Http\Controllers\laporanController::class, 'viewPendapatanlain'])->name('lapPendapatanlain');
+Route::post('/lapPendapatanlain/sorted', [App\Http\Controllers\laporanController::class, 'sortedPendapatanlain']);
 
 Route::get('/lapPenerimaankas', [App\Http\Controllers\laporanController::class, 'viewPenerimaankas'])->name('lapPenerimaankas');
-Route::get('/lapPengeluarankas', [App\Http\Controllers\laporanController::class, 'viewPengeluarankas'])->name('lapPengeluarankas');
+Route::post('/lapPenerimaankas/sorted', [App\Http\Controllers\laporanController::class, 'sortedPenerimaanKas']);
 
+Route::get('/lapPengeluarankas', [App\Http\Controllers\laporanController::class, 'viewPengeluarankas'])->name('lapPengeluarankas');
 Route::post('/lapPengeluarankas/sorted', [App\Http\Controllers\laporanController::class, 'sortedPengeluaranKas']);
 
 Route::get('/bukuBesarkas', [App\Http\Controllers\laporanController::class, 'viewBukubesarkas'])->name('bukuBesarkas');

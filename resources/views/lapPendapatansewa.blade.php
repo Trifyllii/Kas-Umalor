@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'laporan1')
+@section('title', 'anjayyy ')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Laporan Penerimaan Kas</h1>
+    <h1 class="m-0 text-dark">Laporan Pendapatan Sewa</h1>
 @stop
 
 @section('content')
@@ -11,7 +11,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form class="form-inline" method="post" action="{{ url('/lapPenerimaankas/sorted') }}">
+                    <form class="form-inline" method="post" action="{{ url('/lapPendapatansewa/sorted') }}">
                         @csrf
                         <div class="form-group mr-3">
                             <h5>Periode</h5>
@@ -35,7 +35,7 @@
                 <div class="card-header">
                     @isset($tglsampai)
                         <b>
-                            <h5 class="text-center mt-1 mb-2">Laporan Pengeluaran Kas</h5>
+                            <h5 class="text-center mt-1 mb-2">Laporan Pendapatan Sewa</h5>
                             <h6 class="text-center"> Periode {{ $tgldari }} s.d
                                 {{ $tglsampai }}</h6>
                         </b>
@@ -46,9 +46,10 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Tanggal Transaksi</th>
-                                <th scope="col">Keterangan</th>
-                                <th scope="col">Jumlah</th>
+                                <th scope="col">Tanggal</th>
+                                <th scope="col">Nama Ikan</th>
+                                <th scope="col">Jumlah Pendapatan Sewa</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -56,18 +57,17 @@
                                 $no = 1;
                                 $sum = 0;
                             @endphp
-                            @foreach ($penerimaan as $by)
+                            @foreach ($pendapatan as $by)
                                 <tr>
                                     <th scope="row">{{ $no++ }}</th>
-                                    <th scope="row">{{ $by['tgl_transaksi'] }}</th>
-                                    <td>{{ $by['ket_transaksi'] }}</td>
-                                    <td>{{ $by['jml_transaksi'] }}</td>
+                                    <th scope="row">{{ $by['tgl_pendapatan_sewa'] }}</th>
+                                    <td>{{ $by['nm_ikan'] }}</td>
+                                    <td>{{ $by['jml_pendapatan_sewa'] }}</td>
+                                    @php
+                                        $sum += $by['jml_pendapatan_sewa'];
+                                    @endphp
                                 </tr>
-                                @php
-                                    $sum += $by['jml_transaksi'];
-                                @endphp
                             @endforeach
-
                             <tr>
                                 <th class="text-center" colspan="3">Total</th>
                                 <th>{{ $sum }}</th>
@@ -78,5 +78,6 @@
                 </div>
             </div>
         </div>
+
     </div>
 @stop
