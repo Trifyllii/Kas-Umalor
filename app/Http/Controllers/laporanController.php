@@ -60,7 +60,18 @@ class laporanController extends Controller
     }
      public function viewPembelian()
     {
-        return view('pembelian');
+        return view('lapPembelian', [
+            'pembelian' => pembelian::latest()->get() 
+        ]);
+    }
+    public function sortedPembelian(Request $request)
+    {
+        $pk = pembelian::whereBetween('tgl_pembelian', [$request->tgldari, $request->tglsampai])->get();
+        return view('lapPembelian', [ 
+            'pembelian' => $pk,
+            'tgldari' => $request->tgldari, 
+            'tglsampai' => $request->tglsampai
+        ]);
     }
     public function viewPenerimaankas()
     {

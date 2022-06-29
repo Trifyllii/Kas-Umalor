@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'anjayyy ')
+@section('title', 'laporan pendapatan sewa ')
 
 @section('content_header')
     <h1 class="m-0 text-dark">Laporan Pendapatan Sewa</h1>

@@ -3,11 +3,11 @@
 @section('title', 'pembelian')
 
 @section('content_header')
-<h1 class="m-0 text-dark">Pembelian</h1>
+    <h1 class="m-0 text-dark">Pembelian</h1>
 @stop
 
 @section('content')
-<div class="row">
+    <div class="row">
         <div class="col-12 mb-4">
             <div class="card">
                 <div class="card-body">
@@ -34,8 +34,8 @@
                                             <input name="KodePembelian" type="text" class="col-md-12 form-control"
                                                 id="formGroupExampleInput">
                                             <label class="text-warning mt-2 control-label">Tanggal Pembelian</label>
-                                            <input name="TanggalPembelian" type="date" class="form-control" name="tglpembelian"
-                                                id="">
+                                            <input name="TanggalPembelian" type="date" class="form-control"
+                                                name="tglpembelian" id="">
                                             <label class="text-warning mt-2 control-label">Nama Pembelian</label>
                                             <input name="NamaPembelian" type="text" class="form-control"
                                                 id="formGroupExampleInput">
@@ -64,7 +64,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Data Biaya </h3>
+                        <h3>Data Pembelian </h3>
                     </div>
                     <div class="card-body">
                         <table class="table table-hover">
@@ -96,7 +96,8 @@
                                                 </button>
 
                                                 <!-- Modal EDIT -->
-                                                <div id="{{ $by['kd_pembelian'] }}_editModal" class="modal fade" role="dialog">
+                                                <div id="{{ $by['kd_pembelian'] }}_editModal" class="modal fade"
+                                                    role="dialog">
                                                     <div class="modal-dialog">
 
                                                         <!-- Modal content-->
@@ -108,25 +109,39 @@
                                                                 <form action="{{ url('/editPembelian') }}" method="POST">
                                                                     @csrf
                                                                     <div class="form-group">
-                                                                        <label class="text-warning mt-1 control-label">Kode Pembelian <small><i>Read Only</i></small></label>
-                                                                        <input readonly value="{{ $by['kd_pembelian'] }}" 
-                                                                            name="KodePembelian" type="text" class="col-md-12 form-control"
+                                                                        <label class="text-warning mt-1 control-label">Kode
+                                                                            Pembelian <small><i>Read
+                                                                                    Only</i></small></label>
+                                                                        <input readonly value="{{ $by['kd_pembelian'] }}"
+                                                                            name="KodePembelian" type="text"
+                                                                            class="col-md-12 form-control"
                                                                             id="formGroupExampleInput">
-                                                                        <label class="text-warning mt-2 control-label">Tanggal Pembelian</label>
+                                                                        <label
+                                                                            class="text-warning mt-2 control-label">Tanggal
+                                                                            Pembelian</label>
                                                                         <input value="{{ $by['tgl_pembelian'] }}"
-                                                                            name="TanggalPembelian" type="date" class="form-control" name="tglpembelian"
+                                                                            name="TanggalPembelian" type="date"
+                                                                            class="form-control" name="tglpembelian"
                                                                             id="">
-                                                                        <label class="text-warning mt-2 control-label">Nama Pembelian</label>
+                                                                        <label class="text-warning mt-2 control-label">Nama
+                                                                            Pembelian</label>
                                                                         <input value="{{ $by['nm_pembelian'] }}"
-                                                                            name="NamaPembelian" type="text" class="form-control"
+                                                                            name="NamaPembelian" type="text"
+                                                                            class="form-control"
                                                                             id="formGroupExampleInput">
-                                                                        <label class="text-warning mt-2 control-label">Jumlah Beli</label>
+                                                                        <label
+                                                                            class="text-warning mt-2 control-label">Jumlah
+                                                                            Beli</label>
                                                                         <input value="{{ $by['jml_beli'] }}"
-                                                                            name="JumlahBeli" type="number" class="form-control"
+                                                                            name="JumlahBeli" type="number"
+                                                                            class="form-control"
                                                                             id="formGroupExampleInput2">
-                                                                        <label class="text-warning mt-2 control-label">Harga Beli</label>
+                                                                        <label
+                                                                            class="text-warning mt-2 control-label">Harga
+                                                                            Beli</label>
                                                                         <input value="{{ $by['hrg_beli'] }}"
-                                                                            name="HargaBeli" placeholder="Rp." type="text" class="form-control"
+                                                                            name="HargaBeli" placeholder="Rp."
+                                                                            type="text" class="form-control"
                                                                             id="formGroupExampleInput2">
                                                                     </div>
                                                             </div>
@@ -161,7 +176,8 @@
                                                                 <h4 class="text-warning modal-title">Hapus Data</h4>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form action="{{ url('/hapusPembelian') }}" method="POST">
+                                                                <form action="{{ url('/hapusPembelian') }}"
+                                                                    method="POST">
                                                                     @csrf
                                                                     <div class="form-group">
                                                                         <label
