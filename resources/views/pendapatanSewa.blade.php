@@ -67,6 +67,7 @@
                         <table class="table table-hover">
                             <thead class="thead-dark">
                                 <tr>
+                                    <th scope="col">No</th>
                                     <th scope="col">Kode Pendapatan Sewa</th>
                                     <th scope="col">Tanggal Pendapatan Sewa</th>
                                     <th scope="col">Nama Ikan</th>
@@ -75,8 +76,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $no = 1;
+                                @endphp
                                 @foreach ($pendapatansewa as $by)
                                     <tr>
+                                        <th scope="row">{{ $no++ }}</th>
                                         <th scope="row">{{ $by['kd_pendapatan_sewa'] }}</th>
                                         <td>{{ $by['tgl_pendapatan_sewa'] }}</td>
                                         <td>{{ $by['nm_ikan'] }}</td>

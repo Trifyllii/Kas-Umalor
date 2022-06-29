@@ -67,6 +67,7 @@
                         <table class="table table-hover">
                             <thead class="thead-dark">
                                 <tr>
+                                    <th scope="col">No</th>
                                     <th scope="col">Kode Biaya</th>
                                     <th scope="col">Tanggal Biaya</th>
                                     <th scope="col">Nama Biaya</th>
@@ -75,8 +76,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $no = 1;
+                                @endphp
                                 @foreach ($biaya as $by)
                                     <tr>
+                                        <th scope="row">{{ $no++ }}</th>
                                         <th scope="row">{{ $by['kd_biaya'] }}</th>
                                         <td>{{ $by['tgl_biaya'] }}</td>
                                         <td>{{ $by['nm_biaya'] }}</td>
@@ -91,7 +96,8 @@
                                                 </button>
 
                                                 <!-- Modal EDIT -->
-                                                <div id="{{ $by['kd_biaya'] }}_editModal" class="modal fade" role="dialog">
+                                                <div id="{{ $by['kd_biaya'] }}_editModal" class="modal fade"
+                                                    role="dialog">
                                                     <div class="modal-dialog">
 
                                                         <!-- Modal content-->

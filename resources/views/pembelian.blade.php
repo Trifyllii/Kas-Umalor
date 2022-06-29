@@ -70,6 +70,7 @@
                         <table class="table table-hover">
                             <thead class="thead-dark">
                                 <tr>
+                                    <th scope="col">No</th>
                                     <th scope="col">Kode Pembelian</th>
                                     <th scope="col">Tanggal Pembelian</th>
                                     <th scope="col">Nama Pembelian</th>
@@ -79,8 +80,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $no = 1;
+                                @endphp
                                 @foreach ($pembelian as $by)
                                     <tr>
+                                        <th scope="row">{{ $no++ }}</th>
                                         <th scope="row">{{ $by['kd_pembelian'] }}</th>
                                         <td>{{ $by['tgl_pembelian'] }}</td>
                                         <td>{{ $by['nm_pembelian'] }}</td>
