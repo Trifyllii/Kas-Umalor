@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'laporan pendapatan lain ')
+@section('title', 'laporan pembelian ')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Laporan Pendapatan Lain</h1>
+    <h1 class="m-0 text-dark">Laporan Pembelian</h1>
 @stop
 
 @section('content')
@@ -11,7 +11,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form class="form-inline" method="post" action="{{ url('/lapPendapatanlain/sorted') }}">
+                    <form class="form-inline" method="post" action="{{ url('/lapPembelian/sorted') }}">
                         @csrf
                         <div class="form-group mr-3">
                             <h5>Periode</h5>
@@ -35,7 +35,7 @@
                 <div class="card-header">
                     @isset($tglsampai)
                         <b>
-                            <h5 class="text-center mt-1 mb-2">Laporan Pendapatan Lain</h5>
+                            <h5 class="text-center mt-1 mb-2">Laporan Pembelian</h5>
                             <h6 class="text-center"> Periode {{ $tgldari }} s.d
                                 {{ $tglsampai }}</h6>
                         </b>
@@ -46,10 +46,10 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Tanggal</th>
-                                <th scope="col">Nama Barang</th>
-                                <th scope="col">Jumlah Barang</th>
-                                <th scope="col">Jumlah Pendapatan Lain</th>
+                                <th scope="col">Tanggal Pembelian</th>
+                                <th scope="col">Nama Pembelian</th>
+                                <th scope="col">Jumlah Beli</th>
+                                <th scope="col">Harga Beli</th>
 
                             </tr>
                         </thead>
@@ -58,15 +58,15 @@
                                 $no = 1;
                                 $sum = 0;
                             @endphp
-                            @foreach ($pendapatan as $by)
+                            @foreach ($pembelian as $by)
                                 <tr>
                                     <th scope="row">{{ $no++ }}</th>
-                                    <th scope="row">{{ $by['tgl_pendapatan_lain'] }}</th>
-                                    <td>{{ $by['nm_barang'] }}</td>
-                                    <td>{{ $by['jml_barang'] }}</td>
-                                    <td>{{ $by['jml_pendapatan_lain'] }}</td>
+                                    <th scope="row">{{ $by['tgl_pembelian'] }}</th>
+                                    <td>{{ $by['nm_pembelian'] }}</td>
+                                    <td>{{ $by['jml_beli'] }}</td>
+                                    <td>{{ $by['hrg_beli'] }}</td>
                                     @php
-                                        $sum += $by['jml_pendapatan_lain'];
+                                        $sum += $by['hrg_beli'];
                                     @endphp
                                 </tr>
                             @endforeach

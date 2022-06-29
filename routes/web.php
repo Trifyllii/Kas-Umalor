@@ -47,6 +47,9 @@ Route::post('/lapPendapatansewa/sorted', [App\Http\Controllers\laporanController
 Route::get('/lapPendapatanlain', [App\Http\Controllers\laporanController::class, 'viewPendapatanlain'])->name('lapPendapatanlain');
 Route::post('/lapPendapatanlain/sorted', [App\Http\Controllers\laporanController::class, 'sortedPendapatanlain']);
 
+Route::get('/lapPembelian', [App\Http\Controllers\laporanController::class, 'viewPembelian'])->name('lapPembelian');
+Route::post('/lapPembelian/sorted', [App\Http\Controllers\laporanController::class, 'sortedPembelian']);
+
 Route::get('/lapPenerimaankas', [App\Http\Controllers\laporanController::class, 'viewPenerimaankas'])->name('lapPenerimaankas');
 Route::post('/lapPenerimaankas/sorted', [App\Http\Controllers\laporanController::class, 'sortedPenerimaanKas']);
 
