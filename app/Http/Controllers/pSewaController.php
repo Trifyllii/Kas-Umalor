@@ -38,7 +38,7 @@ class pSewaController extends Controller
             'nm_ikan' => $request->NamaIkan, 
             'jml_pendapatan_sewa' => $request->JumlahPendapatanSewa,
         ]);
-        PenerimaanKas::create([ 
+        penerimaanKas::create([ 
             'kd_pendapatan_sewa' => $request->KodePendapatanSewa, 
             'tgl_transaksi' => $request->TanggalPendapatanSewa, 
             'ket_transaksi' => $request->NamaIkan, 
@@ -52,7 +52,7 @@ class pSewaController extends Controller
             'nm_ikan' => $request->NamaIkan, 
             'jml_pendapatan_sewa' => $request->JumlahPendapatanSewa,
         ]); 
-        PenerimaanKas::whereIn('kd_biaya', [$request->KodeBiaya])->update([
+        penerimaanKas::whereIn('kd_pendapatan_sewa', [$request->KodePendapatanSewa])->update([
             'tgl_transaksi' => $request->TanggalPendapatanSewa, 
             'ket_transaksi' => $request->NamaIkan, 
             'jml_transaksi' => $request->JumlahPendapatanSewa, 

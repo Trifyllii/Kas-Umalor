@@ -107,7 +107,7 @@
                                                                 <h4 class="text-warning modal-title">Edit Data</h4>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form class="need-validation"
+                                                                <form class="needs-validation"
                                                                     action="{{ url('/editPendapatansewa') }}"
                                                                     method="POST">
                                                                     @csrf

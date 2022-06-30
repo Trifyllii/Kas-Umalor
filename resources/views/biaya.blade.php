@@ -106,7 +106,8 @@
                                                                 <h4 class="text-warning modal-title">Edit Data</h4>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form action="{{ url('/editBiaya') }}" method="POST">
+                                                                <form class=needs-validation
+                                                                    action="{{ url('/editBiaya') }}" method="POST">
                                                                     @csrf
                                                                     <div class="form-group">
                                                                         <label class="text-warning mt-1 control-label">Kode
@@ -115,26 +116,27 @@
                                                                         <input readonly value="{{ $by['kd_biaya'] }}"
                                                                             name="KodeBiaya" type="text"
                                                                             class="col-md-12 form-control"
-                                                                            id="formGroupExampleInput">
+                                                                            id="formGroupExampleInput" required>
                                                                         <label
                                                                             class="text-warning mt-2 control-label">Tanggal
                                                                             Biaya</label>
                                                                         <input value="{{ $by['tgl_biaya'] }}"
                                                                             name="TanggalBiaya" type="date"
                                                                             class="form-control" name="tglbiaya"
-                                                                            id="">
+                                                                            id="" required>
                                                                         <label class="text-warning mt-2 control-label">Nama
                                                                             Biaya</label>
                                                                         <input value="{{ $by['nm_biaya'] }}"
                                                                             name="NamaBiaya" type="text"
-                                                                            class="form-control" id="formGroupExampleInput">
+                                                                            class="form-control" id="formGroupExampleInput"
+                                                                            required>
                                                                         <label
                                                                             class="text-warning mt-2 control-label">Jumlah
                                                                             Biaya</label>
                                                                         <input value="{{ $by['jml_biaya'] }}"
                                                                             name="JumlahBiaya" placeholder="Rp."
                                                                             type="text" class="form-control"
-                                                                            id="formGroupExampleInput2">
+                                                                            id="formGroupExampleInput2" required>
                                                                     </div>
                                                             </div>
                                                             <div class="modal-footer">
