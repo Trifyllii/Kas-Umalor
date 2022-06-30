@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\penerimaanKas;
+use App\Models\pengeluaranKas;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller

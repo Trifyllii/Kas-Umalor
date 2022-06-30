@@ -10,19 +10,23 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-body">
-                    <form class="form-inline" method="post" action="{{ url('/lapPendapatansewa/sorted') }}">
+                <div class="card-body d-print-none" id="cardTgl">
+                    <form class="form-inline needs-validation" method="post"
+                        action="{{ url('/lapPendapatansewa/sorted') }}">
                         @csrf
                         <div class="form-group mr-3">
                             <h5>Periode</h5>
                         </div>
                         <div class="form-group mb-2">
                             <label class="sr-only">Dari</label>
-                            <input type="date" class="form-control" name="tgldari">
+                            <input type="date" class="form-control" name="tgldari" required>
+                            <div class="valid-feedback">
+                                Harus Diisi!
+                            </div>
                         </div>
                         <div class="form-group mx-sm-3 mb-2">
                             <label class="sr-only">Sampai</label>
-                            <input type="date" class="form-control" name="tglsampai">
+                            <input type="date" class="form-control" name="tglsampai" required>
                         </div>
                         <button type="submit" class="btn btn-dark mb-2">Confirm</button>
                     </form>
@@ -62,7 +66,7 @@
                                     <th scope="row">{{ $no++ }}</th>
                                     <th scope="row">{{ $by['tgl_pendapatan_sewa'] }}</th>
                                     <td>{{ $by['nm_ikan'] }}</td>
-                                    <td>{{ $by['jml_pendapatan_sewa'] }}</td>
+                                    <td>Rp {{ number_format($by['jml_pendapatan_sewa'], 0, ',', '.') }}</td>
                                     @php
                                         $sum += $by['jml_pendapatan_sewa'];
                                     @endphp
@@ -70,7 +74,8 @@
                             @endforeach
                             <tr>
                                 <th class="text-center" colspan="3">Total</th>
-                                <th>{{ $sum }}</th>
+                                <th>Rp {{ number_format($sum, 0, ',', '.') }}</th>
+
                             </tr>
                         </tbody>
 
@@ -78,6 +83,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 @stop

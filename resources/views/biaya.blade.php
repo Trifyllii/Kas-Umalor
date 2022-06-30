@@ -27,21 +27,21 @@
                                     <h4 class="text-warning modal-title">Tambah Data</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{ url('/tambahBiaya') }}" method="POST">
+                                    <form class=needs-validatin action="{{ url('/tambahBiaya') }}" method="POST">
                                         @csrf
                                         <div class="form-group">
                                             <label class="text-warning mt-1 control-label">Kode Biaya</label>
                                             <input name="KodeBiaya" type="text" class="col-md-12 form-control"
-                                                id="formGroupExampleInput">
+                                                id="formGroupExampleInput" required>
                                             <label class="text-warning mt-2 control-label">Tanggal Biaya</label>
                                             <input name="TanggalBiaya" type="date" class="form-control" name="tglbiaya"
-                                                id="">
+                                                id="" required>
                                             <label class="text-warning mt-2 control-label">Nama Biaya</label>
                                             <input name="NamaBiaya" type="text" class="form-control"
-                                                id="formGroupExampleInput">
+                                                id="formGroupExampleInput" required>
                                             <label class="text-warning mt-2 control-label">Jumlah Biaya</label>
                                             <input name="JumlahBiaya" placeholder="Rp." type="text" class="form-control"
-                                                id="formGroupExampleInput2">
+                                                id="formGroupExampleInput2" required>
                                         </div>
                                 </div>
                                 <div class="modal-footer">
@@ -67,6 +67,7 @@
                         <table class="table table-hover">
                             <thead class="thead-dark">
                                 <tr>
+                                    <th scope="col">No</th>
                                     <th scope="col">Kode Biaya</th>
                                     <th scope="col">Tanggal Biaya</th>
                                     <th scope="col">Nama Biaya</th>
@@ -75,12 +76,16 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $no = 1;
+                                @endphp
                                 @foreach ($biaya as $by)
                                     <tr>
+                                        <th scope="row">{{ $no++ }}</th>
                                         <th scope="row">{{ $by['kd_biaya'] }}</th>
                                         <td>{{ $by['tgl_biaya'] }}</td>
                                         <td>{{ $by['nm_biaya'] }}</td>
-                                        <td>{{ $by['jml_biaya'] }}</td>
+                                        <td>Rp {{ number_format($by['jml_biaya'], 0, ',', '.') }}</td>
                                         <td>
                                             <div class="col-12">
                                                 <!-- BUTTON MODAL EDIT -->
@@ -91,7 +96,8 @@
                                                 </button>
 
                                                 <!-- Modal EDIT -->
-                                                <div id="{{ $by['kd_biaya'] }}_editModal" class="modal fade" role="dialog">
+                                                <div id="{{ $by['kd_biaya'] }}_editModal" class="modal fade"
+                                                    role="dialog">
                                                     <div class="modal-dialog">
 
                                                         <!-- Modal content-->

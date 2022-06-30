@@ -27,24 +27,24 @@
                                     <h4 class="text-warning modal-title">Tambah Data</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{ url('/tambahPembelian') }}" method="POST">
+                                    <form class=needs-validation action="{{ url('/tambahPembelian') }}" method="POST">
                                         @csrf
                                         <div class="form-group">
                                             <label class="text-warning mt-1 control-label">Kode Pembelian</label>
                                             <input name="KodePembelian" type="text" class="col-md-12 form-control"
-                                                id="formGroupExampleInput">
+                                                id="formGroupExampleInput" required>
                                             <label class="text-warning mt-2 control-label">Tanggal Pembelian</label>
                                             <input name="TanggalPembelian" type="date" class="form-control"
-                                                name="tglpembelian" id="">
+                                                name="tglpembelian" id="" required>
                                             <label class="text-warning mt-2 control-label">Nama Pembelian</label>
                                             <input name="NamaPembelian" type="text" class="form-control"
-                                                id="formGroupExampleInput">
+                                                id="formGroupExampleInput" required>
                                             <label class="text-warning mt-2 control-label">Jumlah Beli</label>
                                             <input name="JumlahBeli" type="number" class="form-control"
-                                                id="formGroupExampleInput2">
+                                                id="formGroupExampleInput2" required>
                                             <label class="text-warning mt-2 control-label">Harga Beli</label>
                                             <input name="HargaBeli" placeholder="Rp." type="text" class="form-control"
-                                                id="formGroupExampleInput2">
+                                                id="formGroupExampleInput2" required>
                                         </div>
                                 </div>
                                 <div class="modal-footer">
@@ -70,6 +70,7 @@
                         <table class="table table-hover">
                             <thead class="thead-dark">
                                 <tr>
+                                    <th scope="col">No</th>
                                     <th scope="col">Kode Pembelian</th>
                                     <th scope="col">Tanggal Pembelian</th>
                                     <th scope="col">Nama Pembelian</th>
@@ -79,13 +80,17 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $no = 1;
+                                @endphp
                                 @foreach ($pembelian as $by)
                                     <tr>
+                                        <th scope="row">{{ $no++ }}</th>
                                         <th scope="row">{{ $by['kd_pembelian'] }}</th>
                                         <td>{{ $by['tgl_pembelian'] }}</td>
                                         <td>{{ $by['nm_pembelian'] }}</td>
                                         <td>{{ $by['jml_beli'] }}</td>
-                                        <td>{{ $by['hrg_beli'] }}</td>
+                                        <td>Rp {{ number_format($by['hrg_beli'], 0, ',', '.') }}</td>
                                         <td>
                                             <div class="col-12">
                                                 <!-- BUTTON MODAL EDIT -->
