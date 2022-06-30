@@ -27,21 +27,22 @@
                                     <h4 class="text-warning modal-title">Tambah Data</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{ url('/tambahPendapatansewa') }}" method="POST">
+                                    <form class="needs-validation" action="{{ url('/tambahPendapatansewa') }}"
+                                        method="POST">
                                         @csrf
                                         <div class="form-group">
                                             <label class="text-warning mt-1 control-label">Kode Pendapatan Sewa</label>
                                             <input name="KodePendapatanSewa" type="text" class="col-md-12 form-control"
-                                                id="formGroupExampleInput">
+                                                id="formGroupExampleInput" required>
                                             <label class="text-warning mt-2 control-label">Tanggal Pendapatan Sewa</label>
                                             <input name="TanggalPendapatanSewa" type="date" class="form-control"
-                                                name="tglpendapatansewa" id="">
+                                                name="tglpendapatansewa" id="" required>
                                             <label class="text-warning mt-2 control-label">Nama Ikan</label>
                                             <input name="NamaIkan" type="text" class="form-control"
-                                                id="formGroupExampleInput">
+                                                id="formGroupExampleInput" required>
                                             <label class="text-warning mt-2 control-label">Nominal</label>
                                             <input name="JumlahPendapatanSewa" placeholder="Rp." type="text"
-                                                class="form-control" id="formGroupExampleInput2">
+                                                class="form-control" id="formGroupExampleInput2" required>
                                         </div>
                                 </div>
                                 <div class="modal-footer">
@@ -85,7 +86,7 @@
                                         <th scope="row">{{ $by['kd_pendapatan_sewa'] }}</th>
                                         <td>{{ $by['tgl_pendapatan_sewa'] }}</td>
                                         <td>{{ $by['nm_ikan'] }}</td>
-                                        <td>{{ $by['jml_pendapatan_sewa'] }}</td>
+                                        <td>Rp {{ number_format($by['jml_pendapatan_sewa'], 0, ',', '.') }}</td>
                                         <td>
                                             <div class="col-12">
                                                 <!-- BUTTON MODAL EDIT -->
@@ -101,12 +102,13 @@
                                                     <div class="modal-dialog">
 
                                                         <!-- Modal content-->
-                                                        <div class="bg-dark modal-content">
+                                                        <div class="bg-dark modal-content ">
                                                             <div class="modal-header">
                                                                 <h4 class="text-warning modal-title">Edit Data</h4>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form action="{{ url('/editPendapatansewa') }}"
+                                                                <form class="need-validation"
+                                                                    action="{{ url('/editPendapatansewa') }}"
                                                                     method="POST">
                                                                     @csrf
                                                                     <div class="form-group">
@@ -117,25 +119,26 @@
                                                                             value="{{ $by['kd_pendapatan_sewa'] }}"
                                                                             name="KodePendapatanSewa" type="text"
                                                                             class="col-md-12 form-control"
-                                                                            id="formGroupExampleInput">
+                                                                            id="formGroupExampleInput" required>
                                                                         <label
                                                                             class="text-warning mt-2 control-label">Tanggal
                                                                             Pendapatan Sewa</label>
                                                                         <input value="{{ $by['tgl_pendapatan_sewa'] }}"
                                                                             name="TanggalPendapatanSewa" type="date"
                                                                             class="form-control" name="tglpendapatansewa"
-                                                                            id="">
+                                                                            id="" required>
                                                                         <label class="text-warning mt-2 control-label">Nama
                                                                             Ikan</label>
                                                                         <input value="{{ $by['nm_ikan'] }}"
                                                                             name="NamaIkan" type="text"
-                                                                            class="form-control" id="formGroupExampleInput">
+                                                                            class="form-control" id="formGroupExampleInput"
+                                                                            required>
                                                                         <label
                                                                             class="text-warning mt-2 control-label">Nominal</label>
                                                                         <input value="{{ $by['jml_pendapatan_sewa'] }}"
                                                                             name="JumlahPendapatanSewa" placeholder="Rp."
                                                                             type="text" class="form-control"
-                                                                            id="formGroupExampleInput2">
+                                                                            id="formGroupExampleInput2" required>
                                                                     </div>
                                                             </div>
                                                             <div class="modal-footer">
