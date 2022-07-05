@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Pembelian;
 use App\Models\pengeluaranKas;
+use App\Models\kas;
 use Illuminate\Http\Request;
 
 class pembelianController extends Controller
@@ -47,6 +48,13 @@ class pembelianController extends Controller
             'ket_transaksi' => $request->NamaPembelian, 
             'jml_transaksi' => $request->HargaBeli,
         ]); 
+        $pengeluaranKasMdl = pengeluaranKas::where('kd_pembelian', '=', $request->KodePembelian)->first();
+        Kas::create([ 
+            'kd_keluar_kas' => $pengeluaranKasMdl->kd_keluar_kas, 
+            'tgl_transaksi' => $request->TanggalPembelian, 
+            'ket_transaksi' => $request->NamaPembelian, 
+            'kredit' => $request->HargaBeli,
+        ]);
         return redirect('pembelian');
     }
     public function editPembelian(Request $request){
@@ -61,13 +69,23 @@ class pembelianController extends Controller
             'ket_transaksi' => $request->NamaPembelian, 
             'jml_transaksi' => $request->HargaBeli, 
         ]);
+        $pengeluaranKasMdl = pengeluaranKas::where('kd_pembelian', '=', $request->KodePembelian)->first();
+            Kas::whereIn('kd_keluar_kas', [$pengeluaranKasMdl->kd_keluar_kas])->update([
+            'tgl_transaksi' => $request->TanggalPembelian, 
+            'ket_transaksi' => $request->NamaPembelian, 
+            'kredit' => $request->HargaBeli, 
+        ]);
         return redirect('pembelian');
 
     }
     public function hapusPembelian(Request $request){
         Pembelian::where('kd_pembelian', [$request->KodePembelian])->delete();
         pengeluaranKas::where('kd_pembelian', [$request->KodePembelian])->delete();
-
+        $pengeluaranKasMdl = pengeluaranKas::where('kd_pembelian', '=', $request->KodePembelian)->first();
+        if ($pengeluaranKasMdl['kd_keluar_kas']) {
+        
+        Kas::where('kd_keluar_kas', $pengeluaranKasMdl['kd_keluar_kas'])->delete();
+        }
         return redirect('pembelian') ->with('alert', 'Data Berhasil Dihapus!');
     }
 }

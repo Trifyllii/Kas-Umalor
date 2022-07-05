@@ -45,8 +45,9 @@ return [
     |
     */
 
-    'logo' => '<b>SIA-KAS</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>KAS-UMALOR</b>',
+    'logo_img' => 'logo_mancing.png',
+    #vendor/adminlte/dist/img/AdminLTELogo
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -226,11 +227,11 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
-        ],
+        //[
+            //'type'         => 'navbar-search',
+          //  'text'         => 'search',
+        //    'topnav_right' => true,
+        //],
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'pendapatan lain ')
+@section('title', 'Pendapatan Lain ')
 
 @section('content_header')
     <h1 class="m-0 text-dark">Pendapatan Lain</h1>
@@ -62,7 +62,7 @@
             </div>
 
 
-            <div class="col-12">
+            <div class="">
                 <div class="card">
                     <div class="card-header">
                         <h3>Data Pendapatan Lain </h3>
@@ -112,7 +112,8 @@
                                                                 <h4 class="text-warning modal-title">Edit Data</h4>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form action="{{ url('/editPendapatanlain') }}"
+                                                                <form class=needs-validation
+                                                                    action="{{ url('/editPendapatanlain') }}"
                                                                     method="POST">
                                                                     @csrf
                                                                     <div class="form-group">
@@ -123,33 +124,33 @@
                                                                             value="{{ $by['kd_pendapatan_lain'] }}"
                                                                             name="KodePendapatanLain" type="text"
                                                                             class="col-md-12 form-control"
-                                                                            id="formGroupExampleInput">
+                                                                            id="formGroupExampleInput" required>
                                                                         <label
                                                                             class="text-warning mt-2 control-label">Tanggal
                                                                             Pendapatan Lain</label>
                                                                         <input value="{{ $by['tgl_pendapatan_lain'] }}"
                                                                             name="TanggalPendapatanLain" type="date"
                                                                             class="form-control" name="tglpendapatanlain"
-                                                                            id="">
+                                                                            id="" required>
                                                                         <label class="text-warning mt-2 control-label">Nama
                                                                             Barang</label>
                                                                         <input value="{{ $by['nm_barang'] }}"
                                                                             name="NamaBarang" type="text"
                                                                             class="form-control"
-                                                                            id="formGroupExampleInput">
+                                                                            id="formGroupExampleInput" required>
                                                                         <label
                                                                             class="text-warning mt-2 control-label">Jumlah
                                                                             Barang</label>
                                                                         <input value="{{ $by['jml_barang'] }}"
                                                                             name="JumlahBarang" type="number"
                                                                             class="form-control"
-                                                                            id="formGroupExampleInput2">
+                                                                            id="formGroupExampleInput2"required>
                                                                         <label
                                                                             class="text-warning mt-2 control-label">Nominal</label>
                                                                         <input value="{{ $by['jml_pendapatan_lain'] }}"
                                                                             name="JumlahPendapatanLain" placeholder="Rp."
                                                                             type="text" class="form-control"
-                                                                            id="formGroupExampleInput2">
+                                                                            id="formGroupExampleInput2"required>
                                                                     </div>
                                                             </div>
                                                             <div class="modal-footer">

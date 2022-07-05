@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Biaya;
+use App\Models\Kas;
 use App\Models\pengeluaranKas;
 
 use Illuminate\Http\Request;
@@ -47,6 +48,13 @@ class biayaController extends Controller
             'ket_transaksi' => $request->NamaBiaya, 
             'jml_transaksi' => $request->JumlahBiaya, 
         ]); 
+        $pengeluaranKasMdl = pengeluaranKas::where('kd_biaya', '=', $request->KodeBiaya)->first();
+        Kas::create([ 
+            'kd_keluar_kas' => $pengeluaranKasMdl->kd_keluar_kas, 
+            'tgl_transaksi' => $request->TanggalBiaya, 
+            'ket_transaksi' => $request->NamaBiaya, 
+            'kredit' => $request->JumlahBiaya,
+        ]);
         return redirect('biaya');
     }
     public function editBiaya(Request $request){
@@ -60,11 +68,22 @@ class biayaController extends Controller
             'ket_transaksi' => $request->NamaBiaya, 
             'jml_transaksi' => $request->JumlahBiaya, 
         ]);
+        $pengeluaranKasMdl = pengeluaranKas::where('kd_biaya', '=', $request->KodeBiaya)->first();
+            Kas::whereIn('kd_keluar_kas', [$pengeluaranKasMdl->kd_keluar_kas])->update([
+            'tgl_transaksi' => $request->TanggalBiaya, 
+            'ket_transaksi' => $request->NamaBiaya, 
+            'kredit' => $request->JumlahBiaya, 
+        ]);
         return redirect('biaya');
     }
     public function hapusBiaya(Request $request){
         Biaya::where('kd_biaya', [$request->KodeBiaya])->delete();
         pengeluaranKas::where('kd_biaya', [$request->KodeBiaya])->delete();
+        $pengeluaranKasMdl = pengeluaranKas::where('kd_biaya', '=', $request->KodeBiaya)->first();
+        if ($pengeluaranKasMdl['kd_keluar_kas']) {
+        Kas::where('kd_keluar_kas', $pengeluaranKasMdl['kd_keluar_kas'])->delete();
+
+        }        
         return redirect('biaya') ->with('alert', 'Data Berhasil Dihapus!');
     }
 }
