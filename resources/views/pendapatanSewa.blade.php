@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'pendapatan sewa ')
+@section('title', 'Pendapatan Sewa ')
 
 @section('content_header')
     <h1 class="m-0 text-dark">Pendapatan Sewa</h1>
@@ -59,7 +59,7 @@
             </div>
 
 
-            <div class="col-12">
+            <div class="">
                 <div class="card">
                     <div class="card-header">
                         <h3>Data Pendapatan Sewa </h3>

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'laporan penerimaan kas ')
+@section('title', 'Laporan Penerimaan Kas ')
 
 @section('content_header')
     <h1 class="m-0 text-dark">Laporan Penerimaan Kas</h1>
@@ -18,14 +18,19 @@
                         </div>
                         <div class="form-group mb-2">
                             <label class="sr-only">Dari</label>
-                            <input type="date" class="form-control" name="tgldari" required>
+                            <input type="date" class="form-control"
+                                @isset($tgldari) value="{{ $tgldari }}" @endisset name="tgldari"
+                                required>
                             <div class="valid-feedback">
                                 Harus Diisi!>
                             </div>
                         </div>
+                        <div class="form-group ml-3">s.d</div>
                         <div class="form-group mx-sm-3 mb-2">
                             <label class="sr-only">Sampai</label>
-                            <input type="date" class="form-control" name="tglsampai" required>
+                            <input type="date" class="form-control"
+                                @isset($tglsampai) value="{{ $tglsampai }}" @endisset name="tglsampai"
+                                required>
                         </div>
                         <button type="submit" class="btn btn-dark mb-2">Confirm</button>
                     </form>
@@ -39,8 +44,8 @@
                     @isset($tglsampai)
                         <b>
                             <h5 class="text-center mt-1 mb-2">Laporan Pengeluaran Kas</h5>
-                            <h6 class="text-center"> Periode {{ $tgldari }} s.d
-                                {{ $tglsampai }}</h6>
+                            <h6 class="text-center"> Periode {{ date('d-m-Y', strtotime($tgldari)) }} s.d
+                                {{ date('d-m-Y', strtotime($tglsampai)) }}</h6>
                         </b>
                     @endisset
                 </div>
@@ -62,7 +67,7 @@
                             @foreach ($penerimaan as $by)
                                 <tr>
                                     <th scope="row">{{ $no++ }}</th>
-                                    <th scope="row">{{ $by['tgl_transaksi'] }}</th>
+                                    <th scope="row">{{ date('d-m-Y', strtotime($by['tgl_transaksi'])) }}</th>
                                     <td>{{ $by['ket_transaksi'] }}</td>
                                     <td>Rp {{ number_format($by['jml_transaksi'], 0, ',', '.') }}</td>
                                 </tr>

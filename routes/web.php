@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return View::make('auth.login');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
 Route::get('/pendapatansewa', [App\Http\Controllers\pSewaController::class, 'index'])->name('pendapatanSewa');
 Route::post('/tambahPendapatansewa', [App\Http\Controllers\pSewaController::class, 'tambahPendapatanSewa']);
@@ -57,9 +57,10 @@ Route::get('/lapPengeluarankas', [App\Http\Controllers\laporanController::class,
 Route::post('/lapPengeluarankas/sorted', [App\Http\Controllers\laporanController::class, 'sortedPengeluaranKas']);
 
 Route::get('/bukuBesarkas', [App\Http\Controllers\laporanController::class, 'viewBukubesarkas'])->name('bukuBesarkas');
+Route::post('/bukuBesarkas/sorted', [App\Http\Controllers\laporanController::class, 'sortedBukubesarkas']);
 
 Auth::routes();
 
-Route::get('/home', function() {
-    return view('home');
-})->name('home')->middleware('auth');
+//Route::get('/home', function() {
+  //  return view('home');})
+  //  ->name('home')->middleware('auth');

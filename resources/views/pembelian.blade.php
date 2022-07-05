@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'pembelian')
+@section('title', 'Pembelian')
 
 @section('content_header')
     <h1 class="m-0 text-dark">Pembelian</h1>
@@ -61,7 +61,7 @@
             </div>
 
 
-            <div class="col-12">
+            <div class="">
                 <div class="card">
                     <div class="card-header">
                         <h3>Data Pembelian </h3>

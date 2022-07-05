@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\pendapatansewa;
 use App\Models\penerimaanKas;
+use App\Models\kas;
 use Illuminate\Http\Request;
 
 class pSewaController extends Controller
@@ -44,6 +45,13 @@ class pSewaController extends Controller
             'ket_transaksi' => $request->NamaIkan, 
             'jml_transaksi' => $request->JumlahPendapatanSewa, 
         ]);
+        $penerimaanKasMdl = penerimaanKas::where('kd_pendapatan_sewa', '=', $request->KodePendapatanSewa)->first();
+        Kas::create([ 
+            'kd_terima_kas' => $penerimaanKasMdl->kd_terima_kas, 
+            'tgl_transaksi' => $request->TanggalPendapatanSewa, 
+            'ket_transaksi' => $request->NamaIkan, 
+            'debet' => $request->JumlahPendapatanSewa,
+        ]);
         return redirect('pendapatansewa');
     }
     public function editPendapatansewa(Request $request){
@@ -57,11 +65,21 @@ class pSewaController extends Controller
             'ket_transaksi' => $request->NamaIkan, 
             'jml_transaksi' => $request->JumlahPendapatanSewa, 
         ]);
+        $penerimaanKasMdl = penerimaanKas::where('kd_pendapatan_sewa', '=', $request->KodePendapatanSewa)->first();
+        Kas::whereIn('kd_terima_kas', [$penerimaanKasMdl->kd_terima_kas])->update([
+            'tgl_transaksi' => $request->TanggalPendapatanSewa, 
+            'ket_transaksi' => $request->NamaIkan, 
+            'debet' => $request->JumlahPendapatanSewa,
+        ]);
         return redirect('pendapatansewa');
     }
     public function hapusPendapatansewa(Request $request){
         pendapatansewa::where('kd_pendapatan_sewa', [$request->KodePendapatanSewa])->delete();
         PenerimaanKas::where('kd_pendapatan_sewa', [$request->KodePendapatanSewa])->delete();
+        $penerimaanKasMdl = penerimaanKas::where('kd_pendapatan_sewa', '=', $request->KodePendapatanSewa)->first();
+        if ($penerimaanKasMdl['kd_terima_kas']) {
+            Kas::where('kd_terima_kas', '=', $penerimaanKasMdl['kd_terima_kas'])->first()->delete();
+        }
         return redirect('pendapatansewa') ->with('alert', 'Data Berhasil Dihapus!');
     }
 }

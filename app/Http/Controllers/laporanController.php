@@ -7,6 +7,7 @@ use App\Models\pembelian;
 use App\Models\pendapatanLain;
 use App\Models\pendapatanSewa;
 use App\Models\biaya;
+use App\Models\kas;
 use Illuminate\Http\Request;
 
 class laporanController extends Controller
@@ -29,13 +30,13 @@ class laporanController extends Controller
     public function viewPendapatansewa()
     {
         return view('lapPendapatansewa', [
-            'pendapatan' => pendapatanSewa::latest()->get() 
+            'pendapatan' => pendapatanSewa::orderBy('tgl_pendapatan_sewa')->get() 
         ]);
 
     }
     public function sortedPendapatansewa(Request $request)
     {
-        $pk = pendapatanSewa::whereBetween('tgl_pendapatan_sewa', [$request->tgldari, $request->tglsampai])->get();
+        $pk = pendapatanSewa::whereBetween('tgl_pendapatan_sewa', [$request->tgldari, $request->tglsampai])->orderBy('tgl_pendapatan_sewa')->get();
         return view('lapPendapatansewa', [ 
             'pendapatan' => $pk,
             'tgldari' => $request->tgldari, 
@@ -45,13 +46,13 @@ class laporanController extends Controller
     public function viewPendapatanlain()
     {
         return view('lapPendapatanlain', [
-            'pendapatan' => pendapatanLain::latest()->get() 
+            'pendapatan' => pendapatanLain::orderBy('tgl_pendapatan_lain')->get() 
         ]);
 
     }
     public function sortedPendapatanlain(Request $request)
     {
-        $pk = pendapatanLain::whereBetween('tgl_pendapatan_lain', [$request->tgldari, $request->tglsampai])->get();
+        $pk = pendapatanLain::whereBetween('tgl_pendapatan_lain', [$request->tgldari, $request->tglsampai])->orderBy('tgl_pendapatan_lain')->get();
         return view('lapPendapatanlain', [ 
             'pendapatan' => $pk,
             'tgldari' => $request->tgldari, 
@@ -61,12 +62,12 @@ class laporanController extends Controller
      public function viewPembelian()
     {
         return view('lapPembelian', [
-            'pembelian' => pembelian::latest()->get() 
+            'pembelian' => pembelian::orderBy('tgl_pembelian')->get() 
         ]);
     }
     public function sortedPembelian(Request $request)
     {
-        $pk = pembelian::whereBetween('tgl_pembelian', [$request->tgldari, $request->tglsampai])->get();
+        $pk = pembelian::whereBetween('tgl_pembelian', [$request->tgldari, $request->tglsampai])->orderBy('tgl_pembelian')->get();
         return view('lapPembelian', [ 
             'pembelian' => $pk,
             'tgldari' => $request->tgldari, 
@@ -77,13 +78,13 @@ class laporanController extends Controller
     {
 
         return view('lapPenerimaankas', [ 
-            'penerimaan' => penerimaanKas::latest()->get() 
+            'penerimaan' => penerimaanKas::orderBy('tgl_transaksi')->get() 
         ]);
 
     }
     public function sortedPenerimaanKas(Request $request)
     {
-        $pk = penerimaanKas::whereBetween('tgl_transaksi', [$request->tgldari, $request->tglsampai])->get();
+        $pk = penerimaanKas::whereBetween('tgl_transaksi', [$request->tgldari, $request->tglsampai])->orderBy('tgl_transaksi')->get();
         return view('lapPenerimaankas', [ 
             'penerimaan' => $pk,
             'tgldari' => $request->tgldari, 
@@ -93,12 +94,12 @@ class laporanController extends Controller
     public function viewPengeluarankas()
     {
         return view('lapPengeluarankas', [ 
-            'pengeluaran' => pengeluaranKas::latest()->get() 
+            'pengeluaran' => pengeluaranKas::orderBy('tgl_transaksi')->get() 
         ]);
     }
      public function sortedPengeluaranKas(Request $request)
     {
-        $pk = pengeluaranKas::whereBetween('tgl_transaksi', [$request->tgldari, $request->tglsampai])->get();
+        $pk = pengeluaranKas::whereBetween('tgl_transaksi', [$request->tgldari, $request->tglsampai])->orderBy('tgl_transaksi')->get();
         return view('lapPengeluarankas', [ 
             'pengeluaran' => $pk,
             'tgldari' => $request->tgldari, 
@@ -107,7 +108,18 @@ class laporanController extends Controller
     }
      public function viewBukubesarkas()
     {
-        return view('bukuBesarkas');
+        return view('bukuBesarkas',[
+            'kas' => Kas::orderBy('tgl_transaksi')->get()
+        ]);
+    }
+    public function sortedBukubesarkas(Request $request)
+    {
+        $pk = Kas::whereBetween('tgl_transaksi', [$request->tgldari, $request->tglsampai])->orderBy('tgl_transaksi')->get();
+        return view('bukuBesarkas', [ 
+            'kas' => $pk,
+            'tgldari' => $request->tgldari, 
+            'tglsampai' => $request->tglsampai
+        ]);
     }
 
 }
