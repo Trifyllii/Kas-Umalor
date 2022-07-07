@@ -58,7 +58,7 @@
                                 <th scope="col">Tanggal</th>
                                 <th scope="col">Nama Barang</th>
                                 <th scope="col">Jumlah Barang</th>
-                                <th scope="col">Jumlah Pendapatan Lain</th>
+                                <th scope="col">Harga Barang</th>
 
                             </tr>
                         </thead>

@@ -54,7 +54,7 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Tanggal Pembelian</th>
+                                <th scope="col">Tanggal</th>
                                 <th scope="col">Nama Pembelian</th>
                                 <th scope="col">Jumlah Beli</th>
                                 <th scope="col">Harga Beli</th>

@@ -34,7 +34,7 @@
                                             <label class="text-warning mt-1 control-label">Kode Pendapatan Lain</label>
                                             <input name="KodePendapatanLain" type="text" class="col-md-12 form-control"
                                                 id="formGroupExampleInput" required>
-                                            <label class="text-warning mt-2 control-label">Tanggal Pendapatan Lain</label>
+                                            <label class="text-warning mt-2 control-label">Tanggal</label>
                                             <input name="TanggalPendapatanLain" type="date" class="form-control"
                                                 name="tglpendapatanlain" id="" required>
                                             <label class="text-warning mt-2 control-label">Nama Barang</label>
@@ -43,7 +43,7 @@
                                             <label class="text-warning mt-2 control-label">Jumlah Barang</label>
                                             <input name="JumlahBarang" type="number" class="form-control"
                                                 id="formGroupExampleInput2" required>
-                                            <label class="text-warning mt-2 control-label">Nominal</label>
+                                            <label class="text-warning mt-2 control-label">Harga Barang</label>
                                             <input name="JumlahPendapatanLain" placeholder="Rp." type="text"
                                                 class="form-control" id="formGroupExampleInput2" required>
                                         </div>
@@ -73,10 +73,10 @@
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">Kode Pendapatan Lain</th>
-                                    <th scope="col">Tanggal Pendapatan Lain</th>
+                                    <th scope="col">Tanggal</th>
                                     <th scope="col">Nama Barang</th>
                                     <th scope="col">Jumlah Barang</th>
-                                    <th scope="col">Nominal</th>
+                                    <th scope="col">Harga Barang</th>
                                     <th scope="col">Opsi Pilihan</th>
                                 </tr>
                             </thead>
@@ -146,7 +146,8 @@
                                                                             class="form-control"
                                                                             id="formGroupExampleInput2"required>
                                                                         <label
-                                                                            class="text-warning mt-2 control-label">Nominal</label>
+                                                                            class="text-warning mt-2 control-label">Harga
+                                                                            Barang</label>
                                                                         <input value="{{ $by['jml_pendapatan_lain'] }}"
                                                                             name="JumlahPendapatanLain" placeholder="Rp."
                                                                             type="text" class="form-control"
@@ -191,7 +192,7 @@
                                                                         <label
                                                                             class="text-warning mt-1 control-label">APAKAH
                                                                             ANDA YAKIN INGIN
-                                                                            MENGHAPUS PEMBELIAN INI? : <small><br>
+                                                                            MENGHAPUS PENDAPATAN LAIN INI? : <small><br>
                                                                                 <i> Aksi ini tidak dapat
                                                                                     dikembalikan!</i></small></label>
                                                                         <table class="table">

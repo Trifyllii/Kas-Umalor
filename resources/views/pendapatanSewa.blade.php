@@ -34,13 +34,13 @@
                                             <label class="text-warning mt-1 control-label">Kode Pendapatan Sewa</label>
                                             <input name="KodePendapatanSewa" type="text" class="col-md-12 form-control"
                                                 id="formGroupExampleInput" required>
-                                            <label class="text-warning mt-2 control-label">Tanggal Pendapatan Sewa</label>
+                                            <label class="text-warning mt-2 control-label">Tanggal Sewa</label>
                                             <input name="TanggalPendapatanSewa" type="date" class="form-control"
                                                 name="tglpendapatansewa" id="" required>
                                             <label class="text-warning mt-2 control-label">Nama Ikan</label>
                                             <input name="NamaIkan" type="text" class="form-control"
                                                 id="formGroupExampleInput" required>
-                                            <label class="text-warning mt-2 control-label">Nominal</label>
+                                            <label class="text-warning mt-2 control-label">Harga Sewa</label>
                                             <input name="JumlahPendapatanSewa" placeholder="Rp." type="text"
                                                 class="form-control" id="formGroupExampleInput2" required>
                                         </div>
@@ -70,9 +70,9 @@
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">Kode Pendapatan Sewa</th>
-                                    <th scope="col">Tanggal Pendapatan Sewa</th>
+                                    <th scope="col">Tanggal Sewa</th>
                                     <th scope="col">Nama Ikan</th>
-                                    <th scope="col">Nominal</th>
+                                    <th scope="col">Harga Sewa</th>
                                     <th scope="col">Opsi Pilihan</th>
                                 </tr>
                             </thead>
@@ -134,7 +134,8 @@
                                                                             class="form-control" id="formGroupExampleInput"
                                                                             required>
                                                                         <label
-                                                                            class="text-warning mt-2 control-label">Nominal</label>
+                                                                            class="text-warning mt-2 control-label">Harga
+                                                                            Sewa</label>
                                                                         <input value="{{ $by['jml_pendapatan_sewa'] }}"
                                                                             name="JumlahPendapatanSewa" placeholder="Rp."
                                                                             type="text" class="form-control"
@@ -179,7 +180,7 @@
                                                                         <label
                                                                             class="text-warning mt-1 control-label">APAKAH
                                                                             ANDA YAKIN INGIN
-                                                                            MENGHAPUS PEMBELIAN INI? : <small><br>
+                                                                            MENGHAPUS PENDAPATAN SEWA INI? : <small><br>
                                                                                 <i> Aksi ini tidak dapat
                                                                                     dikembalikan!</i></small></label>
                                                                         <table class="table">

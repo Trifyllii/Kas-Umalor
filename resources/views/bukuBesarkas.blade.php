@@ -56,8 +56,8 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Tanggal</th>
                                 <th scope="col">Keterangan</th>
-                                <th scope="col" class="text-primary">Debet</th>
-                                <th scope="col" class="text-danger">Kredit</th>
+                                <th scope="col">Debet</th>
+                                <th scope="col">Kredit</th>
                                 <th scope="col">Saldo</th>
 
                             </tr>

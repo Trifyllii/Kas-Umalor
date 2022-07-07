@@ -43,7 +43,7 @@
                 <div class="card-header">
                     @isset($tglsampai)
                         <b>
-                            <h5 class="text-center mt-1 mb-2">Laporan Pengeluaran Kas</h5>
+                            <h5 class="text-center mt-1 mb-2">Laporan Penerimaaan Kas</h5>
                             <h6 class="text-center"> Periode {{ date('d-m-Y', strtotime($tgldari)) }} s.d
                                 {{ date('d-m-Y', strtotime($tglsampai)) }}</h6>
                         </b>
@@ -54,7 +54,7 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Tanggal Transaksi</th>
+                                <th scope="col">Tanggal</th>
                                 <th scope="col">Keterangan</th>
                                 <th scope="col">Jumlah</th>
                             </tr>

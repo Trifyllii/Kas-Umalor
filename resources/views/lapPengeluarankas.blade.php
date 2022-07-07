@@ -55,7 +55,7 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Tanggal Transaksi</th>
+                                <th scope="col">Tanggal</th>
                                 <th scope="col">Keterangan</th>
                                 <th scope="col">Jumlah</th>
                             </tr>
