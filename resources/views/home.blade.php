@@ -10,12 +10,10 @@
     @php
     $sum1 = 0;
     $sum2 = 0;
-
     @endphp
-    <div class="row">
+    <div class="row" data-aos="fade-up">
         <div class="col-12">
             <div class="card">
-
                 <div class="card-body pb-2">
                     <img src="{{ url('home-umalor.png') }}" style="max-width: 2200px; width:100% ;"
                         class="img-fluid rounded mx-auto d-block" alt="Responsive image">

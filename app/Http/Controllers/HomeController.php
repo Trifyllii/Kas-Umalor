@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\penerimaanKas;
 use App\Models\pengeluaranKas;
+use App\Models\user;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,7 +28,8 @@ class HomeController extends Controller
     {
        return view('home', [ 
             'penerimaan' => penerimaanKas::latest()->get() ,
-            'pengeluaran' => pengeluaranKas::latest()->get() 
+            'pengeluaran' => pengeluaranKas::latest()->get() ,
+            
         ]); 
     }
 }

@@ -43800,7 +43800,7 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 .bootstrap-switch .bootstrap-switch-handle-off {
   text-align: center;
   z-index: 1;
-}
+} 
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default {
