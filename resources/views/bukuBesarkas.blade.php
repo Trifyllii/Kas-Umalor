@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <div class="row">
+    <div class="row" data-aos="fade-up">
         <div class="col-12">
             <div class="card">
                 <div class="card-body d-print-none" id="cardTgl">
@@ -33,6 +33,11 @@
                                 required>
                         </div>
                         <button type="submit" class="btn btn-dark mb-2">Confirm</button>
+                        <div class="pl-2 text-right">
+                            <button onclick="window.print()" class="btn btn-dark mb-2">
+                                <i class="fas fa-print"></i>
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -56,8 +61,8 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Tanggal</th>
                                 <th scope="col">Keterangan</th>
-                                <th scope="col" class="text-primary">Debet</th>
-                                <th scope="col" class="text-danger">Kredit</th>
+                                <th scope="col">Debet</th>
+                                <th scope="col">Kredit</th>
                                 <th scope="col">Saldo</th>
 
                             </tr>

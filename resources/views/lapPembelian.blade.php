@@ -7,37 +7,48 @@
 @stop
 
 @section('content')
-    <div class="row">
+    <div class="row" data-aos="fade-up">
         <div class="col-12">
             <div class="card">
                 <div class="card-body d-print-none" id="cardTgl">
-                    <form class="form-inline needs-validation" method="post" action="{{ url('/lapPembelian/sorted') }}">
-                        @csrf
-                        <div class="form-group mr-3">
-                            <h5>Periode</h5>
-                        </div>
-                        <div class="form-group mb-2">
-                            <label class="sr-only">Dari</label>
-                            <input type="date" class="form-control"
-                                @isset($tgldari) value="{{ $tgldari }}" @endisset name="tgldari"
-                                required>
-                            <div class="valid-feedback">
-                                Harus Diisi!
+                    <div class="col-12">
+                        <form class="form-inline needs-validation" method="post"
+                            action="{{ url('/lapPembelian/sorted') }}">
+                            @csrf
+                            <div class="form-group mr-3">
+                                <h5>Periode</h5>
                             </div>
-                        </div>
-                        <div class="form-group ml-3">s.d</div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label class="sr-only">Sampai</label>
-                            <input type="date" class="form-control"
-                                @isset($tglsampai) value="{{ $tglsampai }}" @endisset name="tglsampai"
-                                required>
-                        </div>
-                        <button type="submit" class="btn btn-dark mb-2">Confirm</button>
-                    </form>
+                            <div class="form-group mb-2">
+                                <label class="sr-only">Dari</label>
+                                <input type="date" class="form-control"
+                                    @isset($tgldari) value="{{ $tgldari }}" @endisset name="tgldari"
+                                    required>
+                                <div class="valid-feedback">
+                                    Harus Diisi!
+                                </div>
+                            </div>
+                            <div class="form-group ml-3">s.d</div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                <label class="sr-only">Sampai</label>
+                                <input type="date" class="form-control"
+                                    @isset($tglsampai) value="{{ $tglsampai }}" @endisset
+                                    name="tglsampai" required>
+                            </div>
+                            <button type="submit" class="btn btn-dark mb-2">Confirm</button>
+
+                            <div class="pl-2 text-right">
+                                <button onclick="window.print()" class="btn btn-dark mb-2">
+                                    <i class="fas fa-print"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-
         </div>
+
+        <!--TABEL START-->
+
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
@@ -54,7 +65,7 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Tanggal Pembelian</th>
+                                <th scope="col">Tanggal</th>
                                 <th scope="col">Nama Pembelian</th>
                                 <th scope="col">Jumlah Beli</th>
                                 <th scope="col">Harga Beli</th>
@@ -85,9 +96,11 @@
                         </tbody>
 
                     </table>
+
                 </div>
             </div>
         </div>
+        <!--TABEL END-->
 
     </div>
 @stop
