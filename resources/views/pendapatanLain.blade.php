@@ -29,8 +29,11 @@
 
                                 <!-- Modal content-->
                                 <div class="bg-dark modal-content">
+
+                                    <!-- TABEL Start -->
+
                                     <div class="modal-header">
-                                        <h4 class="text-warning modal-title">Tambah Data</h4>
+                                        <h5 class="text-warning modal-title">TAMBAH DATA PENDAPATAN LAIN</h5>
                                     </div>
                                     <div class="modal-body">
                                         <form class=needs-validation action="{{ url('/tambahPendapatanlain') }}"
@@ -49,7 +52,7 @@
                                                 <label class="text-warning mt-2 control-label">Jumlah Barang</label>
                                                 <input name="JumlahBarang" type="number" class="form-control"
                                                     id="formGroupExampleInput2" required>
-                                                <label class="text-warning mt-2 control-label">Harga Barang</label>
+                                                <label class="text-warning mt-2 control-label">Subtotal</label>
                                                 <input name="JumlahPendapatanLain" placeholder="Rp." type="text"
                                                     class="form-control" id="formGroupExampleInput2" required>
                                             </div>
@@ -60,6 +63,8 @@
                                             data-dismiss="modal">Batal</button>
                                     </div>
                                     </form>
+                                    <!-- TABEL end -->
+
                                 </div>
 
                             </div>
@@ -69,11 +74,12 @@
         </div>
     </div>
 
+    <!-- TABEL Start -->
 
     <div class="">
         <div class="card">
             <div class="card-header">
-                <h3>Data Pendapatan Lain </h3>
+                <h4 class="text-center">DAFTAR PENDAPATAN LAIN </h4>
             </div>
             <div class="card-body">
                 <table class="table table-hover">
@@ -84,7 +90,7 @@
                             <th scope="col">Tanggal</th>
                             <th scope="col">Nama Barang</th>
                             <th scope="col">Jumlah Barang</th>
-                            <th scope="col">Harga Barang</th>
+                            <th scope="col">Subtotal</th>
                             @if ($user['position'] == 'admin')
                                 <th scope="col">Opsi Pilihan</th>
                             @endif
@@ -98,10 +104,11 @@
                             <tr>
                                 <th scope="row">{{ $no++ }}</th>
                                 <th scope="row">{{ $by['kd_pendapatan_lain'] }}</th>
-                                <td>{{ $by['tgl_pendapatan_lain'] }}</td>
+                                <th scope="row">{{ date('d-m-Y', strtotime($by['tgl_pendapatan_lain'])) }}</th>
                                 <td>{{ $by['nm_barang'] }}</td>
                                 <td>{{ $by['jml_barang'] }}</td>
                                 <td>Rp {{ number_format($by['jml_pendapatan_lain'], 0, ',', '.') }}</td>
+                                <!-- TABEL End -->
 
                                 @if ($user['position'] == 'admin')
                                     <td>

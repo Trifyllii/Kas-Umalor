@@ -62,7 +62,8 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Tanggal</th>
                                 <th scope="col">Nama Ikan</th>
-                                <th scope="col">Harga Sewa</th>
+                                <th scope="col">Jumlah Penyewa</th>
+                                <th scope="col">Subtotal</th>
 
                             </tr>
                         </thead>
@@ -76,6 +77,7 @@
                                     <th scope="row">{{ $no++ }}</th>
                                     <th scope="row">{{ date('d-m-Y', strtotime($by['tgl_pendapatan_sewa'])) }}</th>
                                     <td>{{ $by['nm_ikan'] }}</td>
+                                    <td>{{ $by['jml_penyewa'] }}</td>
                                     <td>Rp {{ number_format($by['jml_pendapatan_sewa'], 0, ',', '.') }}</td>
                                     @php
                                         $sum += $by['jml_pendapatan_sewa'];
@@ -83,7 +85,7 @@
                                 </tr>
                             @endforeach
                             <tr>
-                                <th class="text-center" colspan="3">Total</th>
+                                <th class="text-center" colspan="4">Total</th>
                                 <th>Rp {{ number_format($sum, 0, ',', '.') }}</th>
 
                             </tr>

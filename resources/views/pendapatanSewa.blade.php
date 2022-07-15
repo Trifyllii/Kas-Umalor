@@ -30,8 +30,11 @@
 
                                 <!-- Modal content-->
                                 <div class="bg-dark modal-content">
+
+                                    <!-- TABEL Start -->
+
                                     <div class="modal-header">
-                                        <h4 class="text-warning modal-title">Tambah Data</h4>
+                                        <h5 class="text-warning modal-title">TAMBAH DATA PENDAPATAN SEWA</h5>
                                     </div>
                                     <div class="modal-body">
                                         <form class="needs-validation" action="{{ url('/tambahPendapatansewa') }}"
@@ -48,7 +51,10 @@
                                                 <label class="text-warning mt-2 control-label">Nama Ikan</label>
                                                 <input name="NamaIkan" type="text" class="form-control"
                                                     id="formGroupExampleInput" required>
-                                                <label class="text-warning mt-2 control-label">Harga Sewa</label>
+                                                <label class="text-warning mt-2 control-label">Jumlah Penyewa</label>
+                                                <input name="JumlahPenyewa" type="number" class="form-control"
+                                                    id="formGroupExampleInput" required>
+                                                <label class="text-warning mt-2 control-label">Subtotal</label>
                                                 <input name="JumlahPendapatanSewa" placeholder="Rp." type="text"
                                                     class="form-control" id="formGroupExampleInput2" required>
                                             </div>
@@ -59,6 +65,8 @@
                                             data-dismiss="modal">Batal</button>
                                     </div>
                                     </form>
+                                    <!-- TABEL end -->
+
                                 </div>
 
                             </div>
@@ -73,7 +81,7 @@
     <div class="">
         <div class="card">
             <div class="card-header">
-                <h3>Data Pendapatan Sewa </h3>
+                <h4 class="text-center">DAFTAR PENDAPATAN SEWA </h4>
             </div>
             <div class="card-body">
                 <table class="table table-hover">
@@ -83,7 +91,8 @@
                             <th scope="col">Kode Pendapatan Sewa</th>
                             <th scope="col">Tanggal Sewa</th>
                             <th scope="col">Nama Ikan</th>
-                            <th scope="col">Harga Sewa</th>
+                            <th scope="col">Jumlah Penyewa</th>
+                            <th scope="col">Subtotal</th>
                             @if ($user['position'] == 'admin')
                                 <th scope="col">Opsi Pilihan</th>
                             @endif
@@ -97,8 +106,9 @@
                             <tr>
                                 <th scope="row">{{ $no++ }}</th>
                                 <th scope="row">{{ $by['kd_pendapatan_sewa'] }}</th>
-                                <td>{{ $by['tgl_pendapatan_sewa'] }}</td>
+                                <th scope="row">{{ date('d-m-Y', strtotime($by['tgl_pendapatan_sewa'])) }}</th>
                                 <td>{{ $by['nm_ikan'] }}</td>
+                                <td>{{ $by['jml_penyewa'] }}</td>
                                 <td>Rp {{ number_format($by['jml_pendapatan_sewa'], 0, ',', '.') }}</td>
 
 
@@ -148,6 +158,12 @@
                                                                     <input value="{{ $by['nm_ikan'] }}" name="NamaIkan"
                                                                         type="text" class="form-control"
                                                                         id="formGroupExampleInput" required>
+                                                                    <label class="text-warning mt-2 control-label">Jumlah
+                                                                        Penyewa</label>
+                                                                    <input value="{{ $by['jml_penyewa'] }}"
+                                                                        name="JumlahPenyewa" type="number"
+                                                                        class="form-control" id="formGroupExampleInput"
+                                                                        required>
                                                                     <label class="text-warning mt-2 control-label">Harga
                                                                         Sewa</label>
                                                                     <input value="{{ $by['jml_pendapatan_sewa'] }}"
@@ -209,6 +225,7 @@
                                                                                 <td>{{ $by['tgl_pendapatan_sewa'] }}
                                                                                 </td>
                                                                                 <td>{{ $by['nm_ikan'] }}</td>
+                                                                                <td>{{ $by['jml_penyewa'] }}</td>
                                                                                 <td>{{ $by['jml_pendapatan_sewa'] }}
                                                                                 </td>
                                                                             </tr>

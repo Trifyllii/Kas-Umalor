@@ -29,8 +29,11 @@
 
                                 <!-- Modal content-->
                                 <div class="bg-dark modal-content">
+
+                                    <!-- TABEL Start -->
+
                                     <div class="modal-header">
-                                        <h4 class="text-warning modal-title">Tambah Data</h4>
+                                        <h5 class="text-warning modal-title">TAMBAH DATA PEMBELIAN</h5>
                                     </div>
                                     <div class="modal-body">
                                         <form class=needs-validation action="{{ url('/tambahPembelian') }}"
@@ -49,7 +52,7 @@
                                                 <label class="text-warning mt-2 control-label">Jumlah Beli</label>
                                                 <input name="JumlahBeli" type="number" class="form-control"
                                                     id="formGroupExampleInput2" required>
-                                                <label class="text-warning mt-2 control-label">Harga Beli</label>
+                                                <label class="text-warning mt-2 control-label">Subtotal</label>
                                                 <input name="HargaBeli" placeholder="Rp." type="text"
                                                     class="form-control" id="formGroupExampleInput2" required>
                                             </div>
@@ -60,6 +63,8 @@
                                             data-dismiss="modal">Batal</button>
                                     </div>
                                     </form>
+                                    <!-- TABEL end -->
+
                                 </div>
 
                             </div>
@@ -69,11 +74,12 @@
         </div>
     </div>
 
+    <!-- TABEL Start -->
 
     <div class="">
         <div class="card">
             <div class="card-header">
-                <h3>Data Pembelian </h3>
+                <h4 class="text-center">DAFTAR PEMBELIAN </h4>
             </div>
             <div class="card-body">
                 <table class="table table-hover">
@@ -84,7 +90,7 @@
                             <th scope="col">Tanggal Pembelian</th>
                             <th scope="col">Nama Pembelian</th>
                             <th scope="col">Jumlah Beli</th>
-                            <th scope="col">Harga Beli</th>
+                            <th scope="col">Subtotal</th>
                             @if ($user['position'] == 'admin')
                                 <th scope="col">Opsi Pilihan</th>
                             @endif
@@ -98,10 +104,12 @@
                             <tr>
                                 <th scope="row">{{ $no++ }}</th>
                                 <th scope="row">{{ $by['kd_pembelian'] }}</th>
-                                <td>{{ $by['tgl_pembelian'] }}</td>
+                                <th scope="row">{{ date('d-m-Y', strtotime($by['tgl_pembelian'])) }}</th>
                                 <td>{{ $by['nm_pembelian'] }}</td>
                                 <td>{{ $by['jml_beli'] }}</td>
                                 <td>Rp {{ number_format($by['hrg_beli'], 0, ',', '.') }}</td>
+                                <!-- TABEL Start -->
+
                                 @if ($user['position'] == 'admin')
                                     <td>
                                         <div class="col-12">

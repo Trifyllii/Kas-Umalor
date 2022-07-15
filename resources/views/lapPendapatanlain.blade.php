@@ -46,6 +46,8 @@
         </div>
         <div class="col-12">
             <div class="card">
+                <!-- TABEL Start -->
+
                 <div class="card-header">
                     @isset($tglsampai)
                         <b>
@@ -63,7 +65,7 @@
                                 <th scope="col">Tanggal</th>
                                 <th scope="col">Nama Barang</th>
                                 <th scope="col">Jumlah Barang</th>
-                                <th scope="col">Harga Barang</th>
+                                <th scope="col">Subtotal</th>
 
                             </tr>
                         </thead>
@@ -92,6 +94,8 @@
 
                     </table>
                 </div>
+                <!-- TABEL end -->
+
             </div>
         </div>
 
