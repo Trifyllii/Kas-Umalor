@@ -83,7 +83,7 @@
         }
 
         .banner .copyright {
-            color: #aaa;
+            color: #fff;
             font-size: 1.2em;
         }
     </style>
@@ -108,9 +108,9 @@
                 <a href="/login" class="btn btn-md text-center mt-4">LOGIN</a>
             </div>
             <div class="col-md-8 offset-md-2 copyright mt-3">
-                <p class="text-center">
+                <h3 class="text-center">
                     Copyright @ S. Afrida Ananti
-                </p>
+                </h3>
             </div>
         </div>
     </div>
