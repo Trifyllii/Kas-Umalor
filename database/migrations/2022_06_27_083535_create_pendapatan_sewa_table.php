@@ -17,6 +17,7 @@ class CreatePendapatanSewaTable extends Migration
             $table->string('kd_pendapatan_sewa')->primary();
             $table->date('tgl_pendapatan_sewa');
             $table->string('nm_ikan');
+            $table->integer('jml_penyewa')->default('1');
             $table->double('jml_pendapatan_sewa',15);
             $table->timestamps(); 
             $table->softDeletes('deleted_at');

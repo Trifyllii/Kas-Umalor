@@ -29,8 +29,11 @@
 
                                 <!-- Modal content-->
                                 <div class="bg-dark modal-content">
+
+                                    <!-- TABEL Start -->
+
                                     <div class="modal-header">
-                                        <h4 class="text-warning modal-title">Tambah Data</h4>
+                                        <h5 class="text-warning modal-title">TAMBAH DATA BIAYA</h5>
                                     </div>
                                     <div class="modal-body">
                                         <form class=needs-validatin action="{{ url('/tambahBiaya') }}" method="POST">
@@ -56,6 +59,8 @@
                                             data-dismiss="modal">Batal</button>
                                     </div>
                                     </form>
+                                    <!-- TABEL end -->
+
                                 </div>
 
                             </div>
@@ -65,11 +70,12 @@
         </div>
     </div>
 
+    <!-- TABEL Start -->
 
     <div class="">
         <div class="card">
             <div class="card-header">
-                <h3>Data Biaya </h3>
+                <h4 class="text-center">DAFTAR BIAYA </h4>
             </div>
             <div class="card-body">
                 <table class="table table-hover">
@@ -93,9 +99,10 @@
                             <tr>
                                 <th scope="row">{{ $no++ }}</th>
                                 <th scope="row">{{ $by['kd_biaya'] }}</th>
-                                <td>{{ $by['tgl_biaya'] }}</td>
+                                <th scope="row">{{ date('d-m-Y', strtotime($by['tgl_biaya'])) }}</th>
                                 <td>{{ $by['nm_biaya'] }}</td>
                                 <td>Rp {{ number_format($by['jml_biaya'], 0, ',', '.') }}</td>
+                                <!-- TABEL end -->
 
                                 @if ($user['position'] == 'admin')
                                     <td>

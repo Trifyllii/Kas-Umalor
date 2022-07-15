@@ -68,7 +68,7 @@
                                 <th scope="col">Tanggal</th>
                                 <th scope="col">Nama Pembelian</th>
                                 <th scope="col">Jumlah Beli</th>
-                                <th scope="col">Harga Beli</th>
+                                <th scope="col">Subtotal</th>
 
                             </tr>
                         </thead>
