@@ -28,7 +28,6 @@ class pSewaController extends Controller
     {
         return view('pendapatansewa', [ 
             'pendapatansewa' => pendapatanSewa::latest()->get() 
-
         ]);
     }
     public function tambahPendapatansewa(Request $request)
@@ -79,7 +78,7 @@ class pSewaController extends Controller
         pendapatansewa::where('kd_pendapatan_sewa', [$request->KodePendapatanSewa])->delete();
         PenerimaanKas::where('kd_pendapatan_sewa', [$request->KodePendapatanSewa])->delete();
         $penerimaanKasMdl = penerimaanKas::where('kd_pendapatan_sewa', '=', $request->KodePendapatanSewa)->first();
-        if ($penerimaanKasMdl['kd_terima_kas']) {
+        if (isset($penerimaanKasMdl['kd_terima_kas'])) {
             Kas::where('kd_terima_kas', '=', $penerimaanKasMdl['kd_terima_kas'])->first()->delete();
         }
         return redirect('pendapatansewa') ->with('alert', 'Data Berhasil Dihapus!');

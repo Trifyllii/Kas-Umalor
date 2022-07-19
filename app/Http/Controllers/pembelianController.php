@@ -82,7 +82,7 @@ class pembelianController extends Controller
         Pembelian::where('kd_pembelian', [$request->KodePembelian])->delete();
         pengeluaranKas::where('kd_pembelian', [$request->KodePembelian])->delete();
         $pengeluaranKasMdl = pengeluaranKas::where('kd_pembelian', '=', $request->KodePembelian)->first();
-        if ($pengeluaranKasMdl['kd_keluar_kas']) {
+        if (isset($pengeluaranKasMdl['kd_keluar_kas'])) {
         
         Kas::where('kd_keluar_kas', $pengeluaranKasMdl['kd_keluar_kas'])->delete();
         }
