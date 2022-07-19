@@ -80,7 +80,7 @@ class biayaController extends Controller
         Biaya::where('kd_biaya', [$request->KodeBiaya])->delete();
         pengeluaranKas::where('kd_biaya', [$request->KodeBiaya])->delete();
         $pengeluaranKasMdl = pengeluaranKas::where('kd_biaya', '=', $request->KodeBiaya)->first();
-        if ($pengeluaranKasMdl['kd_keluar_kas']) {
+        if (isset($pengeluaranKasMdl['kd_keluar_kas'])) {
         Kas::where('kd_keluar_kas', $pengeluaranKasMdl['kd_keluar_kas'])->delete();
 
         }        

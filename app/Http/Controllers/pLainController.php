@@ -82,7 +82,7 @@ class pLainController extends Controller
         pendapatanlain::where('kd_pendapatan_lain', [$request->KodePendapatanLain])->delete();
         penerimaanKas::where('kd_pendapatan_lain', [$request->KodePendapatanLain])->delete();
         $penerimaanKasMdl = penerimaanKas::where('kd_pendapatan_lain', '=', $request->KodePendapatanLain)->first();
-        if ($penerimaanKasMdl['kd_terima_kas']) {
+        if (isset($penerimaanKasMdl['kd_terima_kas'])) {
             Kas::where('kd_terima_kas', $penerimaanKasMdl['kd_terima_kas'])->delete();
         }
         return redirect('pendapatanlain') ->with('alert', 'Data Berhasil Dihapus!');
