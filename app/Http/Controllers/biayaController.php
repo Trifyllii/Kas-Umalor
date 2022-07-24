@@ -29,8 +29,8 @@ class biayaController extends Controller
     public function index()
     {
         return view('biaya', [ 
-            
-            'biaya' => Biaya::latest()->get() 
+            'biaya' => Biaya::latest()->get(),
+            'tglnow' => date("Y-m-d")
         ]);
     }
     

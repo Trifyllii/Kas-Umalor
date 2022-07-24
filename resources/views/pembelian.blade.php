@@ -44,7 +44,7 @@
                                                 <input name="KodePembelian" type="text" class="col-md-12 form-control"
                                                     id="formGroupExampleInput" required>
                                                 <label class="text-warning mt-2 control-label">Tanggal Pembelian</label>
-                                                <input name="TanggalPembelian" type="date" class="form-control"
+                                                <input name="TanggalPembelian" type="date" max="{{ $tglnow }}" class="form-control"
                                                     name="tglpembelian" id="" required>
                                                 <label class="text-warning mt-2 control-label">Nama Pembelian</label>
                                                 <input name="NamaPembelian" type="text" class="form-control"
@@ -144,8 +144,8 @@
                                                                         id="formGroupExampleInput" required>
                                                                     <label class="text-warning mt-2 control-label">Tanggal
                                                                         Pembelian</label>
-                                                                    <input value="{{ $by['tgl_pembelian'] }}"
-                                                                        name="TanggalPembelian" type="date"
+                                                                    <input value="{{ $by['tgl_pembelian'] }}" 
+                                                                        name="TanggalPembelian" max="{{ $tglnow }}" type="date"
                                                                         class="form-control" name="tglpembelian"
                                                                         id="" required>
                                                                     <label class="text-warning mt-2 control-label">Nama

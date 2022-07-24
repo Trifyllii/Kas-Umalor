@@ -20,7 +20,7 @@
                             </div>
                             <div class="form-group mb-2">
                                 <label class="sr-only">Dari</label>
-                                <input type="date" class="form-control"
+                                <input type="date" max="{{ $tglnow }}" class="form-control"
                                     @isset($tgldari) value="{{ $tgldari }}" @endisset name="tgldari"
                                     required>
                                 <div class="valid-feedback">
@@ -30,7 +30,7 @@
                             <div class="form-group ml-3">s.d</div>
                             <div class="form-group mx-sm-3 mb-2">
                                 <label class="sr-only">Sampai</label>
-                                <input type="date" class="form-control"
+                                <input type="date" max="{{ $tglnow }}" class="form-control"
                                     @isset($tglsampai) value="{{ $tglsampai }}" @endisset
                                     name="tglsampai" required>
                             </div>

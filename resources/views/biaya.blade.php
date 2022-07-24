@@ -43,7 +43,7 @@
                                                 <input name="KodeBiaya" type="text" class="col-md-12 form-control"
                                                     id="formGroupExampleInput" required>
                                                 <label class="text-warning mt-2 control-label">Tanggal Biaya</label>
-                                                <input name="TanggalBiaya" type="date" class="form-control"
+                                                <input name="TanggalBiaya" type="date" max="{{ $tglnow }}" class="form-control"
                                                     name="tglbiaya" id="" required>
                                                 <label class="text-warning mt-2 control-label">Nama Biaya</label>
                                                 <input name="NamaBiaya" type="text" class="form-control"
@@ -138,7 +138,7 @@
                                                                     <label class="text-warning mt-2 control-label">Tanggal
                                                                         Biaya</label>
                                                                     <input value="{{ $by['tgl_biaya'] }}"
-                                                                        name="TanggalBiaya" type="date"
+                                                                        name="TanggalBiaya" type="date" max="{{ $tglnow }}"
                                                                         class="form-control" name="tglbiaya" id=""
                                                                         required>
                                                                     <label class="text-warning mt-2 control-label">Nama

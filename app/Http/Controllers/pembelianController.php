@@ -28,7 +28,8 @@ class pembelianController extends Controller
      public function index()
     {
         return view('pembelian', [ 
-            'pembelian' => Pembelian::latest()->get() 
+            'pembelian' => Pembelian::latest()->get(),
+            'tglnow' => date("Y-m-d")
 
         ]);
     }

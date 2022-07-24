@@ -8,11 +8,13 @@ use App\Models\pendapatanLain;
 use App\Models\pendapatanSewa;
 use App\Models\biaya;
 use App\Models\kas;
+use View;
+
 use Illuminate\Http\Request;
 
 class laporanController extends Controller
 {
-       /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -20,6 +22,8 @@ class laporanController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        // variabel tgl sekarang untuk max form tanggal
+        View::share ( 'tglnow', date("Y-m-d") );
     }
 
     /**
@@ -30,7 +34,7 @@ class laporanController extends Controller
     public function viewPendapatansewa()
     {
         return view('lapPendapatansewa', [
-            'pendapatan' => pendapatanSewa::orderBy('tgl_pendapatan_sewa')->get() 
+            'pendapatan' => pendapatanSewa::orderBy('tgl_pendapatan_sewa')->get(),
         ]);
 
     }
