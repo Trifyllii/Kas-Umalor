@@ -27,7 +27,8 @@ class pSewaController extends Controller
     public function index()
     {
         return view('pendapatansewa', [ 
-            'pendapatansewa' => pendapatanSewa::latest()->get() 
+            'pendapatansewa' => pendapatanSewa::latest()->get(),
+            'tglnow' => date("Y-m-d")
         ]);
     }
     public function tambahPendapatansewa(Request $request)

@@ -105,7 +105,7 @@
                 <p class="text-center">
 
                 </p>
-                <a href="/login" class="btn btn-md text-center mt-4">LOGIN</a>
+                <a href="/login" class="btn btn-md text-center mt-4">MASUK</a>
             </div>
             <div class="col-md-8 offset-md-2 copyright mt-3">
                 <h3 class="text-center">

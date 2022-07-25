@@ -30,7 +30,8 @@ class pLainController extends Controller
     public function index()
     {
         return view('pendapatanlain', [ 
-            'pendapatanlain' => pendapatanLain::latest()->get() 
+            'pendapatanlain' => pendapatanLain::latest()->get(),
+            'tglnow' => date("Y-m-d")
         ]); 
 
     }

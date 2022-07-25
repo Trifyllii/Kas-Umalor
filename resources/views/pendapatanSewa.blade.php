@@ -46,7 +46,7 @@
                                                 <input name="KodePendapatanSewa" type="text"
                                                     class="col-md-12 form-control" id="formGroupExampleInput" required>
                                                 <label class="text-warning mt-2 control-label">Tanggal Sewa</label>
-                                                <input name="TanggalPendapatanSewa" type="date" class="form-control"
+                                                <input name="TanggalPendapatanSewa" max="{{ $tglnow }}" type="date" class="form-control"
                                                     name="tglpendapatansewa" id="" required>
                                                 <label class="text-warning mt-2 control-label">Nama Ikan</label>
                                                 <input name="NamaIkan" type="text" class="form-control"
@@ -149,7 +149,7 @@
                                                                         id="formGroupExampleInput" required>
                                                                     <label class="text-warning mt-2 control-label">Tanggal
                                                                         Pendapatan Sewa</label>
-                                                                    <input value="{{ $by['tgl_pendapatan_sewa'] }}"
+                                                                    <input value="{{ $by['tgl_pendapatan_sewa'] }}" max="{{ $tglnow }}"
                                                                         name="TanggalPendapatanSewa" type="date"
                                                                         class="form-control" name="tglpendapatansewa"
                                                                         id="" required>
@@ -188,10 +188,7 @@
                                             <!-- END MODAL EDIT-->
 
                                             <!-- BUTTON MODAL DELETE -->
-                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                                data-target="#{{ $by['kd_pendapatan_sewa'] }}_deleteModal"> DELETE
-                                                <i class="fas fa-ban"></i>
-                                            </button>
+                                            
                                             <!-- Modal DELETE -->
                                             <div id="{{ $by['kd_pendapatan_sewa'] }}_deleteModal" class="modal fade"
                                                 role="dialog">

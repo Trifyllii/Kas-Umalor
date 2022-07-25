@@ -44,7 +44,7 @@
                                                 <input name="KodePendapatanLain" type="text"
                                                     class="col-md-12 form-control" id="formGroupExampleInput" required>
                                                 <label class="text-warning mt-2 control-label">Tanggal</label>
-                                                <input name="TanggalPendapatanLain" type="date" class="form-control"
+                                                <input name="TanggalPendapatanLain" type="date" max="{{ $tglnow }}" class="form-control"
                                                     name="tglpendapatanlain" id="" required>
                                                 <label class="text-warning mt-2 control-label">Nama Barang</label>
                                                 <input name="NamaBarang" type="text" class="form-control"
@@ -146,7 +146,7 @@
                                                                     <label class="text-warning mt-2 control-label">Tanggal
                                                                         Pendapatan Lain</label>
                                                                     <input value="{{ $by['tgl_pendapatan_lain'] }}"
-                                                                        name="TanggalPendapatanLain" type="date"
+                                                                        name="TanggalPendapatanLain" max="{{ $tglnow }}" type="date"
                                                                         class="form-control" name="tglpendapatanlain"
                                                                         id="" required>
                                                                     <label class="text-warning mt-2 control-label">Nama
